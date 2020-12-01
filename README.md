@@ -19,7 +19,6 @@ After running, user should be prompted for input (or usage will be printed)
 
 | Day | Name | Progress | 
 |:---:|:---|:---:|
-| - | Advent of Code 2020 | - |
 | 01 | [Report Repair](https://adventofcode.com/2020/day/1) | ✓ |
 | 02 |  |  |
 | 03 |  |  |
