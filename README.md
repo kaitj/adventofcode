@@ -20,7 +20,7 @@ After running, user should be prompted for input (or usage will be printed)
 | Day | Name | Progress | 
 |:---:|:---|:---:|
 | 01 | [Report Repair](https://adventofcode.com/2020/day/1) | ✓ |
-| 02 |  |  |
+| 02 | [Password Philosophy](https://adventofcode.com/2020/day/2) | ✓ |
 | 03 |  |  |
 | 04 |  |  |
 | 05 |  |  |
