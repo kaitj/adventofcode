@@ -10,18 +10,16 @@ pw_dict = {}
 valid_pw = 0
 
 with open(os.path.realpath(input_pw), "r") as f:
-    lines = f.readlines()
+    for line in f:
+        # Remove non alphanumeric and split 
+        line = re.sub(r"[^\w]", ' ', line)
+        line = line.split()
 
-for line in lines:
-    # Remove non alphanumeric and split 
-    line = re.sub(r"[^\w]", ' ', line)
-    line = line.split()
+        # Count number of items each character appears in password
+        counter = collections.Counter(line[-1])
 
-    # Count number of items each character appears in password
-    counter = collections.Counter(line[-1])
-
-    # Check to see if password is valid
-    if (counter[line[-2]] >= int(line[0])) and (counter[line[-2]] <= int(line[1])):
-        valid_pw += 1 
+        # Check to see if password is valid
+        if (counter[line[-2]] >= int(line[0])) and (counter[line[-2]] <= int(line[1])):
+            valid_pw += 1 
 
 print("Number of valid passwords: {}".format(valid_pw))   
