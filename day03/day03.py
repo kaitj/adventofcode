@@ -31,5 +31,4 @@ trees = np.product([find_trees(hill, [1, 1]),
                     find_trees(hill, [5, 1]),
                     find_trees(hill, [7, 1]),
                     find_trees(hill, [1, 2])])
-
 print("Number of trees encountered on path in part 2: {}".format(trees))
