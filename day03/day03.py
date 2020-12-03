@@ -18,9 +18,8 @@ if __name__ == "__main__":
     input_map = input("Enter the path containing to the input map: ")
 
     # Read map
-    f = open(os.path.realpath(input_map), "r")
-    hill = f.readlines()
-    f.close()
+    with open(os.path.realpath(input_map), "r") as f:
+        hill = f.readlines()
 
     # Part 1
     trees = find_trees(hill, [3, 1])
