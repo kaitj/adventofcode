@@ -13,7 +13,7 @@ def check_fields(passport):
     EXPECTED_ECL = ["amb", "blu", "brn", "gry", 
                     "grn", "hzl", "oth"]
 
-    if check_valid(passport) == False:
+    if not check_valid(passport):
         return False
     else:
         field_pairs = passport.split()
