@@ -29,7 +29,7 @@ def check_fields(passport):
         "iyr": lambda val: check_bounds(val, [2010, 2020]),
         "eyr": lambda val: check_bounds(val, [2020, 2030]),
         "hcl": lambda val: val[0] == "#" and val[1:].isalnum() and len(val[1:]) == 6,
-        "hgt": lambda val: check_height(val),
+        "hgt": lambda val: check_height,
         "ecl": lambda val: val in EXPECTED_ECL,
         "pid": lambda val: val.isnumeric() and len(val) == 9,
         "cid": lambda val: True
