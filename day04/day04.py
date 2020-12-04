@@ -13,9 +13,9 @@ def check_bounds(value, bounds):
     return bounds[0] <= int(value) <= bounds[1]
 
 def check_height(value):
-    if value[-2:] == "cm" and (150 <= int(value[:-2]) <= 193):
+    if value[-2:] == "cm" and check_bounds(value[:-2], [150, 193]):
         return True
-    elif value[-2:] == "in" and (59 <= int(value[:-2]) <= 76):
+    elif value[-2:] == "in" and check_bounds(value[:-2], [59, 76]):
         return True
     else:
         return False
