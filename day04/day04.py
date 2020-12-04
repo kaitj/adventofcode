@@ -9,9 +9,31 @@ def check_valid(passport, valid=False):
 
     return valid
 
+def check_bounds(value, bounds):
+    return bounds[0] <= int(value) <= bounds[1]
+
+def check_height(value):
+    if value[-2:] == "cm" and (150 <= int(value[:-2]) <= 193):
+        return True
+    elif value[-2:] == "in" and (59 <= int(value[:-2]) <= 76):
+        return True
+    else:
+        return False
+
 def check_fields(passport):
     EXPECTED_ECL = ["amb", "blu", "brn", "gry", 
                     "grn", "hzl", "oth"]
+
+    check_condition = {
+        "byr": lambda val: check_bounds(val, [1920, 2002]),
+        "iyr": lambda val: check_bounds(val, [2010, 2020]),
+        "eyr": lambda val: check_bounds(val, [2020, 2030]),
+        "hcl": lambda val: val[0] == "#" and val[1:].isalnum() and len(val[1:]) == 6,
+        "hgt": lambda val: check_height(val),
+        "ecl": lambda val: val in EXPECTED_ECL,
+        "pid": lambda val: val.isnumeric() and len(val) == 9,
+        "cid": lambda val: True
+    }
 
     if not check_valid(passport):
         return False
@@ -19,30 +41,9 @@ def check_fields(passport):
         field_pairs = passport.split()
         field_pairs = [f.split(":") for f in field_pairs]
 
-        for key, val in field_pairs:
-            if key == "byr" and (not (1920 <= int(val) <= 2002) or not (len(val) == 4)):
-                return False
-            elif key == "iyr" and (not (2010 <= int(val) <= 2020) or not (len(val) == 4)):
-                return False
-            elif key == "eyr" and (not (2020 <= int(val) <= 2030) or not (len(val) == 4)):
-                return False
-            elif key == "hgt":
-                if not (val[-2:] == "cm" or val[-2:] == "in"):
-                    return False
-                elif val[-2:] == "cm" and not (150 <= int(val[:-2]) <= 193):
-                    return False
-                elif val[-2:] == "in" and not (59 <= int(val[:-2]) <= 76):
-                    return False
-            elif key == "hcl":
-                if not val[0] == "#" or not (len(val[1:]) == 6 and val[1:].isalnum()):
-                    return False
-            elif key == "ecl":
-                if val not in EXPECTED_ECL:
-                    return False
-            elif key == "pid":
-                if not len(val) == 9:
-                    return False
-        
+        for key, value in field_pairs:
+            if not check_condition[key](value):
+                return False       
         return True
     
     
