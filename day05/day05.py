@@ -2,12 +2,11 @@ import os
 
 def search_seatid(boarding_pass):
     # Binarize ID
-    id_map = {'F':'0',
-              'B':'1', 
-              'L':'0', 
-              'R':'1'}
+    id_letter = "FBLR"
+    id_num ="0101"
+    id_trans = str.maketrans(id_letter, id_num)
 
-    binary_id = ("").join([id_map[b] for b in boarding_pass])
+    binary_id = boarding_pass.translate(id_trans)
     seat_id = int(binary_id[:7], 2) * 8 + int(binary_id[-3:], 2)
 
     return seat_id
