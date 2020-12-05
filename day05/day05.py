@@ -20,7 +20,6 @@ def search_open_seat(seat_ids):
         if (seat-1 in seat_ids) and (seat+1 in seat_ids):
             open_seat = seat
     
-
     return open_seat
 
 
