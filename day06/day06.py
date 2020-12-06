@@ -28,7 +28,7 @@ if __name__ == "__main__":
     with open(os.path.realpath(answer_file), 'r') as f:
         answers = f.read()
 
-    # Separate by empty line and only include unique characters
+    # Separate by empty line
     group_size, group_answers = get_group(answers.rsplit("\n\n"))
    
     # Part 1 - count number of unique yes within group
