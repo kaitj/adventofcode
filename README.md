@@ -24,7 +24,7 @@ After running, user should be prompted for input (or usage will be printed)
 | 03 | [Toboggan Trajectory](https://adventofcode.com/2020/day/3) | ✓ |
 | 04 | [Passport Processing](https://adventofode.com/2020/day/4) | ✓ |
 | 05 | [Binary Boarding](https://adventofcode.com/2020/day/5) | ✓ |
-| 06 |  |  |
+| 06 | [Custom Customs](https://adventofcode.com/2020/day/6) | ✓ |
 | 07 |  |  |
 | 08 |  |  |
 | 09 |  |  |
