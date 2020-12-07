@@ -5,14 +5,14 @@ from collections import defaultdict
 def parse_relationship(rules, bag_map):
     for rule in rules.split("\n"):
         # Identify parent vs child bags
-        content_re = re.fullmatch(r"([a-zA-Z ]+) bags contain ((?:\d+ [a-zA-Z ]+ bags?(?:, )?)+)\.", rule)
+        content_re = re.match(r"([a-zA-Z ]+) bags contain ((?:\d+ [a-zA-Z ]+ bags?(?:, )?)+)\.", rule)
         if content_re == None:
             continue
         main_bag, bag_contents = content_re.groups()
 
         # Identify number of child bags and colours
         bag_contents = bag_contents.split(", ")
-        bag_contents = [re.fullmatch(r"(\d+) ([a-zA-Z ]+) bags?", content).groups() for content in bag_contents]
+        bag_contents = [re.match(r"(\d+) ([a-zA-Z ]+) bags?", content).groups() for content in bag_contents]
         
         # Store relationships
         for content in bag_contents:
