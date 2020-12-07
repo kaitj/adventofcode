@@ -34,7 +34,7 @@ def find_bag_child(bag_map, bag_colour, num_bags=0):
 
 
 if __name__ == "__main__":
-    rules_file = "input.txt"
+    rules_file = input("Enter file containing rules: ")
 
     # Read entire rules file 
     with open(os.path.realpath(rules_file), "r") as f:
