@@ -21,8 +21,7 @@ def search_open_seat(seat_ids):
     
     return open_seat
 
-
-if __name__ == "__main__":
+def main():
     # User input 
     boarding_file = input("Enter the file containing the boarding passes: ")
 
@@ -37,3 +36,7 @@ if __name__ == "__main__":
     # Search for open seat
     open_seat = search_open_seat(seat_ids)
     print("Open seat at: {}".format(open_seat))
+
+
+if __name__ == "__main__":
+    main()

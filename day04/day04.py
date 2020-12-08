@@ -45,9 +45,8 @@ def check_fields(passport):
             if not check_condition[key](value):
                 return False       
         return True
-    
-    
-if __name__ == "__main__":
+
+def main():
     # User input 
     passport_file = input("Enter path to batch of passports: ")
 
@@ -67,5 +66,8 @@ if __name__ == "__main__":
 
     # Answers
     print("Number of valid passports: {}".format(valid_1))
-    print("Number of valid passports with valid fields: {}".format(valid_2))
-
+    print("Number of valid passports with valid fields: {}".format(valid_2)) 
+    
+    
+if __name__ == "__main__":
+    main()

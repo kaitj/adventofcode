@@ -32,8 +32,7 @@ def find_bag_child(bag_map, bag_colour, num_bags=0):
 
     return num_bags
 
-
-if __name__ == "__main__":
+def main():
     rules_file = input("Enter file containing rules: ")
 
     # Read entire rules file 
@@ -54,3 +53,7 @@ if __name__ == "__main__":
     # Answers
     print(f"Number of potential bags able to hold shiny gold bags: {len(gold_parents)}")
     print(f"Number of potential children bags: {gold_children}")
+
+
+if __name__ == "__main__":
+    main()

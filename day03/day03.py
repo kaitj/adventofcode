@@ -12,8 +12,7 @@ def find_trees(hill, slope):
 
     return trees
 
-
-if __name__ == "__main__":
+def main():
     # Input
     input_map = input("Enter the path containing to the input map: ")
 
@@ -32,3 +31,7 @@ if __name__ == "__main__":
                         find_trees(hill, [7, 1]),
                         find_trees(hill, [1, 2])])
     print("Number of trees encountered on path in part 2: {}".format(trees))
+
+
+if __name__ == "__main__":
+    main()

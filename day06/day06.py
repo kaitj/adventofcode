@@ -20,8 +20,7 @@ def count_unique(group_answers):
 
     return count
 
-
-if __name__ == "__main__":
+def main():
     answer_file = input("Enter path to file containing group answers: ")
 
     # Read file
@@ -38,3 +37,7 @@ if __name__ == "__main__":
     # Part 2 - count consensus yes
     consensus_sum = count_consensus(group_answers, group_size)
     print("Sum of consensus is {}".format(consensus_sum))
+
+
+if __name__ == "__main__":
+    main()
