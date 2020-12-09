@@ -27,7 +27,7 @@ After running, user should be prompted for input (or usage will be printed)
 | 06 | [Custom Customs](https://adventofcode.com/2020/day/6) | ✓ |
 | 07 | [Handy Haversacks](https://adventofcode.com/2020/day/7) | ✓ |
 | 08 | [Handheld Halting](https://adventofcode.com/2020/day/8) | ✓ |
-| 09 |  |  |
+| 09 | [Encoding Error](https://adventofcode.com/2020/day/9) | ✓ |
 | 10 |  |  |
 | 11 |  |  |
 | 12 |  |  |
