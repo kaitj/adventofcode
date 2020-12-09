@@ -12,7 +12,7 @@ def find_missing(xmas_code, preamble):
 
 def find_weakness(xmas_code, missing_num):
     for l in range(0, len(xmas_code)):
-        combo_sum = [combo for combo in itertools.accumulate(xmas_code[l:])][1:]
+        combo_sum = [combo for combo in itertools.accumulate(xmas_code[l:]) if combo <= missing_num][1:]
 
         if missing_num in combo_sum:
             index = combo_sum.index(missing_num)
