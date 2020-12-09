@@ -22,7 +22,6 @@ def find_weakness(xmas_code, missing_num):
 
     return None
 
-
 def main():
     # User input
     xmas_file = input("Enter file containing XMAS-encrypted list: ")
@@ -39,6 +38,7 @@ def main():
     # Part 2
     weakness_sum = find_weakness(xmas_code, missing_num)
     print(f"The weakness in XMAS-list is: {weakness_sum}")
+
 
 if __name__ == "__main__":
     main()
