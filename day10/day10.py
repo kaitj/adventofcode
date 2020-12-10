@@ -42,5 +42,6 @@ def main():
     adapter_combos = compute_chains(adapter_list)
     print(f"The number of possible adapter chains: {adapter_combos}")
 
+
 if __name__ == "__main__":
     main()
