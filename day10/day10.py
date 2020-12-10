@@ -20,7 +20,6 @@ def compute_chains(adapter_list):
 
     return adapter_combos
 
-
 def main():
     # Read adapter file 
     adapter_file = input("Enter file containing adapter list: ")
