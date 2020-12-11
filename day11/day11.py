@@ -1,6 +1,5 @@
 import os
 import itertools
-from collections import Counter
 
 def count_adjacent(seat_map, row, col):
     # Seats to check around
@@ -62,7 +61,7 @@ def seat_sim(seat_map, thresh, visible=False):
                     new_row += "L"
                 else:
                     new_row += seat_map[row][col]    
-                            
+
             next_map.append(new_row)
 
         if next_map == seat_map:
