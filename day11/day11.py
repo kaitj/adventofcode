@@ -43,7 +43,6 @@ def count_occupied(seat_map):
     return count
 
 def seat_sim(seat_map, thresh, visible=False):
-    prev_map = None
     change_state = True 
     while change_state:
         next_map = []
@@ -55,13 +54,15 @@ def seat_sim(seat_map, thresh, visible=False):
                     count = count_adjacent(seat_map, row, col)
                 else:
                     count = count_visible(seat_map, row, col)
+
                 # Replace maps
                 if seat_map[row][col] == "L" and count == 0:
                     new_row += "#"
                 elif seat_map[row][col] == "#" and count >= thresh:
                     new_row += "L"
                 else:
-                    new_row += seat_map[row][col]            
+                    new_row += seat_map[row][col]    
+                            
             next_map.append(new_row)
 
         if next_map == seat_map:
