@@ -1,39 +1,35 @@
 import os
 import itertools
 
-def count_adjacent(seat_map, row, col):
-    # Seats to check around
-    directions = filter(lambda x: not x[0] == x[1] == 0,
-                        itertools.product([-1, 0, 1], [-1, 0, 1]))
-    # Check if seats occupied
-    count = 0
-    for direction in directions:
-        adj_seat = (col+direction[0], row+direction[1])
-        if 0 <= adj_seat[0] <= len(seat_map[0])-1 and 0 <= adj_seat[1] <= len(seat_map)-1:
-            count += 1 if seat_map[adj_seat[1]][adj_seat[0]] == "#" else 0
-    
-    return count
-
-def count_visible(seat_map, row, col):
+def count_seats(seat_map, row, col, visible=False):
     # Seats to check around
     directions = filter(lambda x: not x[0] == x[1] == 0,
                         itertools.product([-1, 0, 1], [-1, 0, 1]))
 
-    # Check if seats occupied
     count = 0
     for direction in directions:
-        mult = 1
-        occupied = False 
-        while not occupied:
-            adj_seat = (col+direction[0]*mult, row+direction[1]*mult)
+        # Check adjacent seats
+        if visible == False: 
+            adj_seat = (col+direction[0], row+direction[1])
             if 0 <= adj_seat[0] <= len(seat_map[0])-1 and 0 <= adj_seat[1] <= len(seat_map)-1:
-                if seat_map[adj_seat[1]][adj_seat[0]] == ".":
-                    mult += 1
+                count += 1 if seat_map[adj_seat[1]][adj_seat[0]] == "#" else 0
+        
+        # Check visible seats
+        else:
+            mult = 1
+            occupied = False
+            # Search until end of map or occupied seat found
+            while not occupied:
+                adj_seat = (col+direction[0]*mult, row+direction[1]*mult)
+                if 0 <= adj_seat[0] <= len(seat_map[0])-1 and 0 <= adj_seat[1] <= len(seat_map)-1:
+                    if seat_map[adj_seat[1]][adj_seat[0]] == ".":
+                        mult += 1
+                    else:
+                        occupied = True
+                        count += 1 if seat_map[adj_seat[1]][adj_seat[0]] == "#" else 0
                 else:
                     occupied = True
-                    count += 1 if seat_map[adj_seat[1]][adj_seat[0]] == "#" else 0
-            else:
-                occupied = True
+
     return count
 
 def count_occupied(seat_map):
@@ -47,13 +43,10 @@ def seat_sim(seat_map, thresh, visible=False, change_state=True):
         for row in range(len(seat_map)):
             new_row = ""
             for col in range(len(seat_map[row])):
-                # Check to see which rules to follow
-                if visible is False:
-                    count = count_adjacent(seat_map, row, col)
-                else:
-                    count = count_visible(seat_map, row, col)
+                # Count seat based on rule
+                count = count_seats(seat_map, row, col, visible)
 
-                # Replace maps
+                # Replace seat layout
                 if seat_map[row][col] == "L" and count == 0:
                     new_row += "#"
                 elif seat_map[row][col] == "#" and count >= thresh:
@@ -62,7 +55,7 @@ def seat_sim(seat_map, thresh, visible=False, change_state=True):
                     new_row += seat_map[row][col]    
 
             next_map.append(new_row)
-
+        # Check state of seat layout
         if next_map == seat_map:
             change_state = False
         else:
