@@ -41,8 +41,7 @@ def count_occupied(seat_map):
     
     return count
 
-def seat_sim(seat_map, thresh, visible=False):
-    change_state = True 
+def seat_sim(seat_map, thresh, visible=False, change_state=True):
     while change_state:
         next_map = []
         for row in range(len(seat_map)):
