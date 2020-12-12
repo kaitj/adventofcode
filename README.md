@@ -30,7 +30,7 @@ After running, user should be prompted for input (or usage will be printed)
 | 09 | [Encoding Error](https://adventofcode.com/2020/day/9) | ✓ |
 | 10 | [Adapter Array](https://adventofcode.com/2020/day/10) | ✓ |
 | 11 | [Seating System](https://adventofcode.com/2020/day/11) | ✓ |
-| 12 |  |  |
+| 12 | [Rain Risk](https://adventofcode.com/2020/day/12) | ✓ |
 | 13 |  |  |
 | 14 |  |  |
 | 15 |  |  |
