@@ -1,6 +1,5 @@
 import os
 import math 
-import itertools
 
 def find_earliest(busses, timestamp):
     min_diff = min_bus = None
