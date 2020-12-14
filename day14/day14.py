@@ -24,7 +24,7 @@ def decoder(init_prog, version):
             mask = value
         elif task.find("mem") >= 0:
             addr = int(task[4:-1])
-            value = format(int(value), "#038b")[2:]
+            value = format(int(value), "036b")
             
             if version == 1:
                 mem[addr] = apply_mask(mask, value)
@@ -36,7 +36,7 @@ def decoder(init_prog, version):
     return mem
 
 def update_addr(mask, addr):
-    addr_bit = format(int(addr), "#038b")[2:]
+    addr_bit = format(int(addr), "036b")
 
     change_bit = {"0": lambda val: str(val),
                   "1": lambda val: "1",
