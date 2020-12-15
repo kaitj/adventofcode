@@ -1,8 +1,8 @@
 import os
-from collections import defaultdict
+from collections import defaultdict, deque
 
 def spoken_num(spoken_numbers, iteration):
-    mem = defaultdict(list)
+    mem = defaultdict(deque)
 
     # Check number of times previous number has been spoken
     for i in range(iteration):
@@ -13,6 +13,8 @@ def spoken_num(spoken_numbers, iteration):
             spoken_numbers.append(0)
         else:
             diff = mem[spoken_numbers[-1]][-1] - mem[spoken_numbers[-1]][-2]
+            if len(mem[diff]) > 2:
+                mem[diff].popleft()
             mem[diff].append(i)
             spoken_numbers.append(diff)
 
@@ -30,7 +32,6 @@ def main():
 
     # Part 2
     print(f"The 300000000th number spoken is: {spoken_num(starting_numbers, 30000000)}")
-    # 26076155
 
 if __name__ == "__main__":
     main()
