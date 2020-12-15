@@ -33,8 +33,8 @@ After running, user should be prompted for input (or usage will be printed)
 | 12 | [Rain Risk](https://adventofcode.com/2020/day/12) | ✓ |
 | 13 | [Shuttle Search](https://adventofcode.com/2020/day/13) | ✓ |
 | 14 | [Docking Data](https://adventofcode.com/2020/day/14) | ✓ |
-| 15 | [](https://adventofcode.com/2020/day/15) |  |
-| 16 |  |  |
+| 15 | [Rambunctious Recitation](https://adventofcode.com/2020/day/15) | ✓ |
+| 16 | [](https://adventofcode.com/2020/day/16) |  |
 | 17 |  |  |
 | 18 |  |  |
 | 19 |  |  |
