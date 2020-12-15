@@ -9,6 +9,8 @@ def spoken_num(spoken_numbers, iteration):
         if i < len(spoken_numbers):
             mem[spoken_numbers[i]].append(i)
         elif len(mem[spoken_numbers[-1]]) == 1:
+            if len(mem[0]) > 2:
+                mem[0].popleft()
             mem[0].append(i)
             spoken_numbers.append(0)
         else:
