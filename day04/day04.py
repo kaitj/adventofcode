@@ -1,16 +1,19 @@
 import os
 
+
 def check_valid(passport, valid=False):
     # Missing cid is fine
-    EXPECTED_FIELDS = ["byr", "iyr", "eyr", "hgt", 
+    expected_fields = ["byr", "iyr", "eyr", "hgt",
                        "hcl", "ecl", "pid", "cid"]
 
-    valid = all(field in passport for field in EXPECTED_FIELDS[:-1])
+    valid = all(field in passport for field in expected_fields[:-1])
 
     return valid
 
+
 def check_bounds(value, bounds):
     return bounds[0] <= int(value) <= bounds[1]
+
 
 def check_height(value):
     if value[-2:] == "cm" and check_bounds(value[:-2], [150, 193]):
@@ -20,8 +23,9 @@ def check_height(value):
     else:
         return False
 
+
 def check_fields(passport):
-    EXPECTED_ECL = ["amb", "blu", "brn", "gry", 
+    expected_ecl = ["amb", "blu", "brn", "gry",
                     "grn", "hzl", "oth"]
 
     check_condition = {
@@ -30,7 +34,7 @@ def check_fields(passport):
         "eyr": lambda val: check_bounds(val, [2020, 2030]),
         "hcl": lambda val: val[0] == "#" and val[1:].isalnum() and len(val[1:]) == 6,
         "hgt": lambda val: check_height,
-        "ecl": lambda val: val in EXPECTED_ECL,
+        "ecl": lambda val: val in expected_ecl,
         "pid": lambda val: val.isnumeric() and len(val) == 9,
         "cid": lambda val: True
     }
@@ -43,16 +47,17 @@ def check_fields(passport):
 
         for key, value in field_pairs:
             if not check_condition[key](value):
-                return False       
+                return False
         return True
 
+
 def main():
-    # User input 
+    # User input
     passport_file = input("Enter path to batch of passports: ")
 
     # Read passport batch
-    with open(os.path.realpath(passport_file), "r") as f:
-        passport_batch = f.read()
+    with open(os.path.realpath(passport_file), "r") as in_file:
+        passport_batch = in_file.read()
 
     # Separate passports by empty line
     passports = passport_batch.rsplit("\n\n")
@@ -66,8 +71,8 @@ def main():
 
     # Answers
     print("Number of valid passports: {}".format(valid_1))
-    print("Number of valid passports with valid fields: {}".format(valid_2)) 
-    
-    
+    print("Number of valid passports with valid fields: {}".format(valid_2))
+
+
 if __name__ == "__main__":
     main()

@@ -1,17 +1,17 @@
 import collections
-import os 
+import os
 import re
 
 # User input
 input_pw = input("Enter the path to the input file: ")
 
 # Sort into dictionary
-pw_dict = {} 
-valid_pw = 0
+pw_dict = {}
+VALID_PW = 0
 
 with open(os.path.realpath(input_pw), "r") as f:
     for line in f:
-        # Remove non alphanumeric and split 
+        # Remove non alphanumeric and split
         line = re.sub(r"[^\w]", ' ', line)
         line = line.split()
 
@@ -19,7 +19,8 @@ with open(os.path.realpath(input_pw), "r") as f:
         counter = collections.Counter(line[-1])
 
         # Check to see if password is valid
-        if (counter[line[-2]] >= int(line[0])) and (counter[line[-2]] <= int(line[1])):
-            valid_pw += 1 
+        if (counter[line[-2]] >= int(line[0])
+            ) and (counter[line[-2]] <= int(line[1])):
+            VALID_PW += 1
 
-print("Number of valid passwords: {}".format(valid_pw))   
+print("Number of valid passwords: {}".format(VALID_PW))

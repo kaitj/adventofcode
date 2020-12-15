@@ -1,6 +1,6 @@
-import numpy as np
 import itertools
 import os
+import numpy as np
 
 # User inputs for target sum, path to input, and number of entries
 target_sum = int(input("Enter target sum: "))

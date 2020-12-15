@@ -1,6 +1,7 @@
 import os
 from collections import defaultdict, deque
 
+
 def spoken_num(spoken_numbers, iteration):
     mem = defaultdict(deque)
 
@@ -22,18 +23,21 @@ def spoken_num(spoken_numbers, iteration):
 
     return spoken_numbers[-1]
 
+
 def main():
     numbers_file = input("Enter the file containing the numbers spoken: ")
 
-    with open(os.path.realpath(numbers_file), "r") as f:
-        starting_numbers = f.read().split(',')
+    with open(os.path.realpath(numbers_file), "r") as in_file:
+        starting_numbers = in_file.read().split(',')
     starting_numbers = [int(num) for num in starting_numbers]
 
     # Part 1
     print(f"The 2020th number spoken is: {spoken_num(starting_numbers, 2020)}")
 
     # Part 2
-    print(f"The 300000000th number spoken is: {spoken_num(starting_numbers, 30000000)}")
+    print(
+        f"The 300000000th number spoken is: {spoken_num(starting_numbers, 30000000)}")
+
 
 if __name__ == "__main__":
     main()
