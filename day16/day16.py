@@ -92,6 +92,7 @@ def main():
     print(f"Number of invalid tickets: {sum(invalid_num)}")
 
     # Part 2: Find fields
+    # Change "departure" to "" if testing with test input
     fields_found = identify_fields(rules, valid_tickets, "departure")
     ticket_mul = reduce(
         operator.mul, [
