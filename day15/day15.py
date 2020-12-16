@@ -35,8 +35,8 @@ def main():
     print(f"The 2020th number spoken is: {spoken_num(starting_numbers, 2020)}")
 
     # Part 2
-    print(
-        f"The 300000000th number spoken is: {spoken_num(starting_numbers, 30000000)}")
+    print(f"The 300000000th number spoken is: \
+            {spoken_num(starting_numbers, 30000000)}")
 
 
 if __name__ == "__main__":
