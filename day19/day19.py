@@ -22,14 +22,13 @@ def match_message(rules, messages, part2=False):
     def rule_regex(key):
         return r"(?:" + "".join(map(expand, rules[key].split())) + ")"
 
-    valid_matches = 0
-
     # Regex
     reg_message = rule_regex(0)
     if part2:
         reg_message = "(" + rule_regex(42) + "+)(" + rule_regex(31) + "+)"
 
     # Check messages for matches
+    valid_matches = 0
     for message in messages:
         reg_match = re.fullmatch(reg_message, message)
         # If match found (part 1), increment counter
