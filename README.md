@@ -37,7 +37,7 @@ After running, user should be prompted for input (or usage will be printed)
 | 16 | [Ticket Translation](https://adventofcode.com/2020/day/16) | ✓ |
 | 17 | [Conway Cubes](https://adventofcode.com/2020/day/17) | ✓ |
 | 18 | [Operation Order](https://adventofcode.com/2020/day/18) | ✓ |
-| 19 | [](https://adventofcode.com/2020/day/19) |  |
+| 19 | [Monster Messages](https://adventofcode.com/2020/day/19) | ✓ |
 | 20 | [](https://adventofcode.com/2020/day/20) |  |
 | 21 | [](https://adventofcode.com/2020/day/21) |  |
 | 22 | [](https://adventofcode.com/2020/day/22) |  |
