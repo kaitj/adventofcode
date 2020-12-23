@@ -41,6 +41,6 @@ After running, user should be prompted for input (or usage will be printed)
 | 20 | [Jurassic Jigsaw](https://adventofcode.com/2020/day/20) |  |
 | 21 | [Allergen Assessment](https://adventofcode.com/2020/day/21) | ✓ |
 | 22 | [Combat Crab](https://adventofcode.com/2020/day/22) | ✓ |
-| 23 | [](https://adventofcode.com/2020/day/23) |  |
+| 23 | [Crab Cups](https://adventofcode.com/2020/day/23) |  |
 | 24 | [](https://adventofcode.com/2020/day/24) |  |
 | 25 | [](https://adventofcode.com/2020/day/25) |  |
