@@ -1,4 +1,5 @@
-import os 
+import os
+
 
 def decrypt(card_pubkey, door_pubkey):
     subject, loop_size, encryption_key = 7, 1, 1
@@ -8,7 +9,7 @@ def decrypt(card_pubkey, door_pubkey):
         encryption_key = (encryption_key * door_pubkey) % 20201227
 
     return encryption_key
-    
+
 
 def main():
     # User input
