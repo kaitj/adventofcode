@@ -44,3 +44,8 @@ After running, user should be prompted for input (or usage will be printed)
 | 23 | [Crab Cups](https://adventofcode.com/2020/day/23) | ✓ |
 | 24 | [Lobby Layout](https://adventofcode.com/2020/day/24) | ✓ |
 | 25 | [Combo Breaker](https://adventofcode.com/2020/day/25) | ✓ |
+
+## Notes
+* Day 20 was a tough one, took a while to figure out
+* Efficiency went out the window closer to the holidays (around day 17)
+* Next year, implement unit testing to test code
