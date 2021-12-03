@@ -22,5 +22,6 @@ After running, user should be prompted for input (or usage will be printed)
 |:---:|:---|:---:|
 | 01 | [Sonar Sweep](https://adventofcode.com/2020/day/1) | ✓ |
 | 02 | [Dive!](https://adventofcode.com/2021/day/2) | ✓ |
+| 03 | [Binary Diagnostic](https://adventofcode.com/2021/day/3) | ✓ |
 
 ## Notes
