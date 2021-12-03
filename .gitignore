@@ -1,6 +1,12 @@
-# VS Code 
+# VS Code
 *.code-workspace
 .vscode
 
 # Python
 __pycache__
+
+# Poetry
+pyproject.toml
+poetry.lock
+.flake8
+.pre-commit-config.yaml
