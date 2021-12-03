@@ -4,9 +4,3 @@
 
 # Python
 __pycache__
-
-# Poetry
-pyproject.toml
-poetry.lock
-.flake8
-.pre-commit-config.yaml
