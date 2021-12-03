@@ -11,7 +11,7 @@ My solutions to the exercises at https://adventofcode.com/2021, completed in Pyt
 To run the code for any particular day from the directory of the day:
 
 ```
-poetry run python <day>.py
+python <day>.py
 ```
 
 After running, user should be prompted for input (or usage will be printed)
