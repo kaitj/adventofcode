@@ -5,19 +5,20 @@ My solutions to the exercises at https://adventofcode.com/2021, completed in Pyt
 ## Notes
 * Solutions will primarily rely on user input instead of hard-coded paths
 * Attempt at minimizing time complexity of code
+* Implements unit testing
 
 ## Code
-To run the code for any particular day from the parent directory:
+To run the code for any particular day from the directory of the day:
 
 ```
-poetry run python <day>/<day>.py
+poetry run python <day>.py
 ```
 
 After running, user should be prompted for input (or usage will be printed)
 
 ## Progress
 
-| Day | Name | Progress | 
+| Day | Name | Progress |
 |:---:|:---|:---:|
 | 01 | [Sonar Sweep](https://adventofcode.com/2020/day/1) | ✓ |
 
