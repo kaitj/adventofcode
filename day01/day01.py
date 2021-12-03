@@ -1,15 +1,32 @@
-import itertools
-import os
-import numpy as np
+import utils
 
-# User inputs for target sum, path to input, and number of entries
-target_sum = int(input("Enter target sum: "))
-input_list = input("Enter path to input list: ")
-input_list = np.genfromtxt(os.path.realpath(input_list), dtype=int)
-num_combinations = int(input("Enter number of entries: "))
 
-# Find entries to target sum and return multiplication
-for num in itertools.combinations(input_list, num_combinations):
-    if sum(num) == target_sum:
-        print("\nCombination of numbers: {0}".format(num))
-        print("Multiplication result: {0}".format(np.product(num)))
+def compare_values(val1: int, val2: int):
+    return val2 > val1
+
+
+def count_larger(in_data):
+    count = 0
+    for idx in range(1, len(in_data)):
+        if compare_values(in_data[idx - 1], in_data[idx]):
+            count += 1
+
+    return count
+
+
+def compute_window(in_data, window=3):
+    return [
+        sum(in_data[idx : idx + window]) for idx in range(len(in_data) - window + 1)
+    ]
+
+
+if __name__ == "__main__":
+    data_fpath = input("Enter the path to the file: ")
+    data_content = utils.parse_lines(data_fpath, int)
+
+    # Puzzle 1
+    print(f"Number of larger elements in list: {count_larger(data_content)}")
+
+    # Puzzle 2
+    windowed_data = compute_window(data_content)
+    print(f"Number of larger elements in window: {count_larger(windowed_data)}")
