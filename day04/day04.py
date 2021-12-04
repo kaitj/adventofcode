@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Dict, NamedTuple
+from typing import NamedTuple
 
 import utils
 
@@ -45,7 +45,7 @@ BINGO = [
 ]
 
 
-def check_bingo(board: Dict[Coord, Square]):
+def check_bingo(board):
     """Check if all elements in rows or columns match drawn numbers in any of the bingo boards"""
     return any(all(board[coord].drawn for coord in combo) for combo in BINGO)
 
