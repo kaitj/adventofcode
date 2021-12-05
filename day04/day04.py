@@ -46,7 +46,7 @@ BINGO = [
 
 
 def check_bingo(board: dict[int, int, bool]) -> bool:
-    """Check if all elements in rows or columns match drawn 
+    """Check if all elements in rows or columns match drawn
     numbers in any of the bingo boards"""
     return any(all(board[coord].drawn for coord in combo) for combo in BINGO)
 
