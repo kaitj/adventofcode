@@ -3,9 +3,10 @@
 My solutions to the exercises at https://adventofcode.com/2021, completed in Python (3.10).
 
 ## Notes
+* Testing out Python 3.10
 * Solutions will primarily rely on user input instead of hard-coded paths
-* Attempt at minimizing time complexity of code
-* Implements unit testing
+* Implements unit testing to first test code
+* An attempt is made at minimizing complexity this year, but not the goal
 
 ## Code
 To run the code for any particular day from the directory of the day:
