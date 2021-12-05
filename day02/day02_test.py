@@ -10,15 +10,11 @@ class TestDay02(unittest.TestCase):
 
     def test_first(self):
         data = utils.parse_group("test_input.txt")
-
-        x_pos, y_pos = day02.planned_course(data)
-        self.assertEqual(x_pos * y_pos, 150)
+        self.assertEqual(day02.travel(data), 150)
 
     def test_second(self):
         data = utils.parse_group("test_input.txt")
-
-        x_pos, y_pos = day02.planned_course(data, aim=0)
-        self.assertEqual(x_pos * y_pos, 900)
+        self.assertEqual(day02.travel(data, True), 900)
 
 
 if __name__ == "__main__":
