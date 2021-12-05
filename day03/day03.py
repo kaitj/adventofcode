@@ -1,7 +1,7 @@
 import utils
 
 
-def count_bits(in_data):
+def count_bits(in_data: list[str]) -> list[dict[str, int]]:
     bit_counter = {
         "0": dict.fromkeys(range(len(in_data[0])), 0),
         "1": dict.fromkeys(range(len(in_data[0])), 0),
@@ -14,27 +14,27 @@ def count_bits(in_data):
     return bit_counter
 
 
-def compare_value(bit_counter, idx, gt=True):
+def compare_value(bit_counter: dict[str, int], idx: int, gt: bool = True) -> str:
     if gt:
         return "0" if bit_counter["0"][idx] > bit_counter["1"][idx] else "1"
     else:
         return "0" if bit_counter["0"][idx] <= bit_counter["1"][idx] else "1"
 
 
-def compute_gamma(bit_counter):
+def compute_gamma(bit_counter: dict[str, int]) -> str:
     return "".join(
         compare_value(bit_counter, idx) for idx in range(len(bit_counter["0"].keys()))
     )
 
 
-def compute_epsilon(bit_counter):
+def compute_epsilon(bit_counter: dict[str, int]) -> str:
     return "".join(
         compare_value(bit_counter, idx, False)
         for idx in range(len(bit_counter["0"].keys()))
     )
 
 
-def compute_o2(in_data):
+def compute_o2(in_data: list[str]) -> str:
     final_code = in_data.copy()
 
     for idx in range(len(in_data[0])):
@@ -54,7 +54,7 @@ def compute_o2(in_data):
     return final_code[0]
 
 
-def compute_co2(in_data):
+def compute_co2(in_data: list[str]) -> str:
     final_code = in_data.copy()
 
     for idx in range(len(in_data[0])):
@@ -74,7 +74,7 @@ def compute_co2(in_data):
     return final_code[0]
 
 
-def puzzle1(in_data):
+def puzzle1(in_data: list[str]) -> int:
     bit_counts = count_bits(in_data)
 
     gamma = compute_gamma(bit_counts)
@@ -83,7 +83,7 @@ def puzzle1(in_data):
     return int(gamma, 2) * int(epsilon, 2)
 
 
-def puzzle2(in_data):
+def puzzle2(in_data: list[str]) -> int:
     o2 = compute_o2(in_data)
     co2 = compute_co2(in_data)
 
