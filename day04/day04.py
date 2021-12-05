@@ -20,12 +20,12 @@ class Square:
     drawn: bool
 
 
-def get_draw(list_nums):
+def get_draw(list_nums: list[str]) -> list[int]:
     """Get bingo draw numbers"""
     return [int(val) for val in list_nums.split(",")]
 
 
-def gen_boards(in_boards):
+def gen_boards(in_boards: list[str]) -> list[dict[int, int, bool]]:
     """Generate all boards with ability to track if they have been drawn"""
     boards = [
         {
@@ -45,12 +45,15 @@ BINGO = [
 ]
 
 
-def check_bingo(board):
-    """Check if all elements in rows or columns match drawn numbers in any of the bingo boards"""
+def check_bingo(board: dict[int, int, bool]) -> bool:
+    """Check if all elements in rows or columns match drawn 
+    numbers in any of the bingo boards"""
     return any(all(board[coord].drawn for coord in combo) for combo in BINGO)
 
 
-def play_bingo(draw_nums, boards, last=False):
+def play_bingo(
+    draw_nums: list[int], boards: list[dict[int, int, bool]], last: bool = False
+):
     fin_board = set()
     for draw in draw_nums:
         for board in boards:
@@ -75,7 +78,7 @@ def play_bingo(draw_nums, boards, last=False):
                     return board, draw
 
 
-def solve(in_data, last=False):
+def solve(in_data: str, last: bool = False):
     draw_nums = get_draw(in_data[0])
     boards = gen_boards(in_data[1:])
     winning_board, draw = play_bingo(draw_nums, boards, last)
