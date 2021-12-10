@@ -28,6 +28,7 @@ After running, user should be prompted for input (or usage will be printed)
 | 05 | [Hydrothermal Venture](https://adventofcode.com/2021/day/5) | ✓ |
 | 06 | [Lanternfish](https://adventofcode.com/2021/day/6) | ✓ |
 | 07 | [The Treachery of Whales](https://adventofcode.com/2021/day/7) | ✓ |
-| 07 | [Seven Segment Search](https://adventofcode.com/2021/day/8) | ✓ |
+| 08 | [Seven Segment Search](https://adventofcode.com/2021/day/8) | ✓ |
+| 09 | [Smoke Basin](https://adventofcode.com/2021/day/9) | ✓ |
 
 ## Notes
