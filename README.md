@@ -32,5 +32,6 @@ After running, user should be prompted for input (or usage will be printed)
 | 09 | [Smoke Basin](https://adventofcode.com/2021/day/9) | ✓ |
 | 10 | [Syntax Sorting](https://adventofcode.com/2021/day/10) | ✓ |
 | 11 | [Dumbo Octopus](https://adventofcode.com/2021/day/11) | ✓ |
+| 12 | [Passage Pathing](https://adventofcode.com/2021/day/12) | ✓ |
 
 ## Notes
