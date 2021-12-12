@@ -5,7 +5,7 @@ import utils
 import day10
 
 
-class TestDay09(unittest.TestCase):
+class TestDay10(unittest.TestCase):
     """Day 10 test cases"""
 
     def test_first(self):
