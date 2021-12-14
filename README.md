@@ -33,5 +33,6 @@ After running, user should be prompted for input (or usage will be printed)
 | 10 | [Syntax Sorting](https://adventofcode.com/2021/day/10) | ✓ |
 | 11 | [Dumbo Octopus](https://adventofcode.com/2021/day/11) | ✓ |
 | 12 | [Passage Pathing](https://adventofcode.com/2021/day/12) | ✓ |
+| 13 | [Transparent Origami](https://adventofcode.com/2021/day/13) | ✓ |
 
 ## Notes
