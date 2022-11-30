@@ -28,7 +28,7 @@ setup = "pre-commit install"
 isort = "isort ./*.py"
 black = "black ."
 flake8 = "flake8 ."
-yamlfix = "yamlfix ."
+yamlfix = { shell = "find . -type f \\( -iname \\*.yaml -o -iname \\*.yml \\) -exec yamlfix {} \\;" }
 quality = ["yamlfix", "isort", "black", "flake8"]
 
 [tool.isort]
