@@ -17,4 +17,4 @@ After running, user should be prompted for input (or usage will be printed)
 
 | Day | Name | Progress |
 |:---:|:---|:---:|
-| 01 | [](https://adventofcode.com/2022/day/1) |  |
+| 01 | [Calorie Counting](https://adventofcode.com/2022/day/1) | ✓ |
