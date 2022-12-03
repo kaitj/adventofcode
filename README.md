@@ -19,3 +19,4 @@ After running, user should be prompted for input (or usage will be printed)
 |:---:|:---|:---:|
 | 01 | [Calorie Counting](https://adventofcode.com/2022/day/1) | ✓ |
 | 02 | [Rock Paper Scissors](https://adventofcode.com/2022/day/2) | ✓ |
+| 03 | [Rucksack Reorganization](https://adventofcode.com/2022/day/3) | ✓ |
