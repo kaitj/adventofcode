@@ -28,10 +28,10 @@ def is_visible(tree_map, map_height, map_width, row, col):
 
         # Determine whether tree is visible from outside
         if (
-            row <= 0 or 
-            row >= map_height - 1 or 
-            col <= 0 or 
-            col >= map_width - 1
+            row <= 0
+            or row >= map_height - 1
+            or col <= 0
+            or col >= map_width - 1
         ):
             visible_out = True
 
