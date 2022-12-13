@@ -29,3 +29,4 @@ After running, user should be prompted for input (or usage will be printed)
 | 10 | [Cathode-Ray Tube](https://adventofcode.com/2022/day/10) | ✓ |
 | 11 | [Monkey in the Middle](https://adventofcode.com/2022/day/11) | ✓ |
 | 12 | [Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) | ✓ |
+| 13 | [Distress Signal](https://adventofcode.com/2022/day/13) | ✓ |
