@@ -31,3 +31,4 @@ After running, user should be prompted for input (or usage will be printed)
 | 12 | [Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) | ✓ |
 | 13 | [Distress Signal](https://adventofcode.com/2022/day/13) | ✓ |
 | 14 | [Regolith Reseervoir](https://adventofcode.com/2022/day/14) | ✓ |
+| 15 | [Beacon Exclusion Zone](https://adventofcode.com/2022/day/15) | ✓ |
