@@ -11,25 +11,26 @@ repos:
 
   - repo: local
     hooks:
-      - id: yamlfix
-        name: yamlfix
-        entry: bash -c "poetry run poe yamlfix"
+      - name: ruff
+        id: ruff
+        entry: poetry run ruff --fix ./
         language: system
+        types_or: [cython, pyi, python]
 
-  - repo: https://github.com/pycqa/isort
-    rev: 5.10.1
-    hooks:
-      - id: isort
-        args: [--profile=black, --multi-line=3]
+      - name: isort
+        id: isort
+        entry: poetry run isort ./
+        language: system
+        types_or: [cython, pyi, python]
 
-  - repo: https://github.com/psf/black
-    rev: 22.8.0
-    hooks:
-      - id: black
-        args: [--line-length=79]
+      - name: black
+        id: black
+        entry: poetry run black ./
+        language: system
+        types_or: [cython, pyi, python]
 
-  - repo: https://github.com/pycqa/flake8
-    rev: 5.0.4
-    hooks:
-      - id: flake8
-        args: [--ignore=E501, --ignore=E203]
+      - name: pyright
+        id: pyright
+        entry: poetry run pyright ./
+        language: system
+        types_or: [cython, pyi, python]
