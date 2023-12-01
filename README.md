@@ -19,6 +19,6 @@ After running, user should be prompted for input (or usage will be printed)
 
 <!-- ✓ -->
 
-| Day | Name                                       | Progress |
-| :-: | :----------------------------------------- | :------: |
-| 01  | [TBD](https://adventofcode.com/2023/day/1) |          |
+| Day | Name                                              | Progress |
+| :-: | :------------------------------------------------ | :------: |
+| 01  | [Trebuchet?](https://adventofcode.com/2023/day/1) |    ✓     |
