@@ -13,12 +13,14 @@ To run the code for any particular day from the directory of the day:
 poetry run python <day>/<day>.py
 ```
 
-After running, user should be prompted for input (or usage will be printed)
+Inputs should be saved in a file named `input.txt` within the associated
+directory for a given day
 
 ## Progress
 
 <!-- ✓ -->
 
-| Day | Name                                              | Progress |
-| :-: | :------------------------------------------------ | :------: |
-| 01  | [Trebuchet?](https://adventofcode.com/2023/day/1) |    ✓     |
+| Day | Name                                                  | Progress |
+| :-: | :---------------------------------------------------- | :------: |
+| 01  | [Trebuchet?](https://adventofcode.com/2023/day/1)     |    ✓     |
+| 02  | [Cube Conundrum](https://adventofcode.com/2023/day/2) |    ✓     |
