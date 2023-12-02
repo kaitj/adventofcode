@@ -20,21 +20,28 @@ VALID_NUM = {
 
 class Day01:
     def __init__(self, input: str):
+        self.lines = self.load_lines(input)
+
+    def load_lines(self, input: str):
         with open(input, "r", encoding="utf-8") as in_file:
-            self.lines: list[str] = [line.strip("\n") for line in in_file]
+            return [line.strip("\n") for line in in_file]
 
     def get_calibration_value(self, part_two: bool) -> list[int]:
         calibration_values: list[int] = []
 
         for line in self.lines:
             if part_two:
-                for word, replacement in VALID_NUM.items():
-                    line = line.replace(word, replacement)
+                line = self.replace_valid_numbers(line)
 
             numbers = re.findall(r"\d", line)
             calibration_values.append(int(f"{numbers[0]}{numbers[-1]}"))
 
         return calibration_values
+
+    def replace_valid_numbers(self, line: str) -> str:
+        for word, replacement in VALID_NUM.items():
+            line = line.replace(word, replacement)
+        return line
 
     def sum_calibration_value(self, part_two: bool = False) -> int:
         return sum(self.get_calibration_value(part_two=part_two))
