@@ -7,9 +7,16 @@ Python.
 
 ## Code
 
+To setup the directory structure for a given day:
+
+```bash
+
+setup_day.sh <day>
+```
+
 To run the code for any particular day from the directory of the day:
 
-```
+```bash
 poetry run python <day>/<day>.py
 ```
 
