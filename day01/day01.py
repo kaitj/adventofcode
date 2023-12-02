@@ -3,6 +3,7 @@
 - calibration value = first + last digit
 """
 import re
+from pathlib import Path
 from unittest import TestCase
 
 VALID_NUM = {
@@ -49,15 +50,15 @@ class Day01:
 
 class TestMain(TestCase):
     def test_part1(self):
-        test = Day01("./day01/test_input_part1.txt")
+        test = Day01(f"{Path(__file__).parent}/test_input_part1.txt")
         self.assertEqual(test.sum_calibration_value(), 142)
 
     def test_part2(self):
-        test = Day01("./day01/test_input_part2.txt")
+        test = Day01(f"{Path(__file__).parent}/test_input_part2.txt")
         self.assertEqual(test.sum_calibration_value(part_two=True), 281)
 
 
 if __name__ == "__main__":
-    solution = Day01("./day01/input.txt")
+    solution = Day01(f"{Path(__file__).parent}/input.txt")
     print(solution.sum_calibration_value())
     print(solution.sum_calibration_value(part_two=True))

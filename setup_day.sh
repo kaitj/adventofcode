@@ -13,17 +13,20 @@ mkdir -p $day_prefix
 # Create python file
 py_file=${day_prefix}/${day_prefix}.py
 echo "#!/usr/bin/env python" > ${py_file}
+echo "from pathlib import Path" >> ${py_file}
 echo "from unittest import TestCase" >> ${py_file}
 echo "" >> ${py_file}
 echo "class ${day_prefix}:" >> ${py_file}
 echo "" >> ${py_file}
 echo "class TestMain(TestCase):" >> ${py_file}
 echo "    def test_part1(self):" >> ${py_file}
+echo "        test = ${day_prefix}(f'{Path(__file__).parent}/test_input_part1.txt')" >> ${py_file}
 echo "" >> ${py_file}
 echo "    # def test_part2(self):" >> ${py_file}
+echo "    #     test = ${day_prefix}(f'{Path(__file__).parent}/test_input_part2.txt')" >> ${py_file}
 echo "" >> ${py_file}
-echo "if __name__ == '__main__':" >> ${py_file}
-echo "    solution = ${day_prefix}('${day_prefix}/input.txt')" >> ${py_file}
+echo "# if __name__ == '__main__':" >> ${py_file}
+echo "#     solution = ${day_prefix}(f'{Path(__file__).parent}/input.txt')" >> ${py_file}
 
 # Create input files
 touch ${day_prefix}/input.txt

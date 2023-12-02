@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import re
+from pathlib import Path
 from unittest import TestCase
 
 
@@ -48,15 +49,15 @@ class Day02:
 
 class TestMain(TestCase):
     def test_part1(self):
-        test = Day02("./day02/test_input_part1.txt")
+        test = Day02(f"{Path(__file__).parent}/test_input_part1.txt")
         self.assertEqual(sum(test.find_valid_games()), 8)
 
     def test_part2(self):
-        test = Day02("./day02/test_input_part2.txt")
+        test = Day02(f"{Path(__file__).parent}/test_input_part2.txt")
         self.assertEqual(sum(test.find_game_power()), 2286)
 
 
 if __name__ == "__main__":
-    solution = Day02("./day02/input.txt")
+    solution = Day02(f"{Path(__file__).parent}/input.txt")
     print(sum(solution.find_valid_games()))
     print(sum(solution.find_game_power()))

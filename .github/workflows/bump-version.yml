@@ -16,7 +16,7 @@ jobs:
           ref: ${{ github.event.pull_request.base.ref }}
 
       - name: Get current date
-        run: DATE=$(echo $(date +'%Y.%m.%d')) >> $GITHUB_ENV
+        run: echo "DATE=$(echo $(date +'%Y.%m.%d'))" >> $GITHUB_ENV
 
       - name: Update date in pyproject.toml
         uses: jacobtomlinson/gha-find-replace@v3
