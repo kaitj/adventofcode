@@ -7,7 +7,7 @@ while [[ ${#day} -lt 2 ]]; do
 done
 
 # Create folder
-day_prefix=day${day}
+day_prefix=Day${day}
 mkdir -p $day_prefix
 
 # Create python file
