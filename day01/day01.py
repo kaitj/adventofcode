@@ -23,7 +23,7 @@ class Day01:
     def __init__(self, input: str):
         self.lines = self.load_lines(input)
 
-    def load_lines(self, input: str):
+    def load_lines(self, input: str) -> list[str]:
         with open(input, "r", encoding="utf-8") as in_file:
             return [line.strip("\n") for line in in_file]
 
