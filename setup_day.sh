@@ -6,10 +6,10 @@ day=$(printf "%02d" $1)
 
 # Create folder
 day_prefix=Day${day}
-mkdir -p $day_prefix
+mkdir -p "${day_prefix,,}"
 
 # Create python file
-py_file=${day_prefix}/${day_prefix}.py
+py_file="${day_prefix,,}/${day_prefix,,}.py"
 cat > $py_file << EOF
 #!/usr/bin/env python
 from pathlib import Path
@@ -24,11 +24,11 @@ class TestMain(TestCase):
     # def test_part2(self):
     #   test = ${day_prefix}(f"{Path(__file__).parent}/test_input_part2.txt")
 
-# __name__ == "__main__":
+# if __name__ == "__main__":
 #   solution = ${day_prefix}(f"{Path(__file__).parent}/input.txt")
 EOF
 
 # Create input files
-touch ${day_prefix}/input.txt
-touch ${day_prefix}/test_input_part1.txt
-touch ${day_prefix}/test_input_part2.txt
+touch "${day_prefix,,}/input.txt"
+touch "${day_prefix,,}/test_input_part1.txt"
+touch "${day_prefix,,}/test_input_part2.txt"
