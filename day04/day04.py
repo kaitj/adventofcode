@@ -24,8 +24,7 @@ class Day04:
     def find_cards(
         self, part_two: bool = False
     ) -> list[int]:  # pyright: ignore
-        winning_cards: list[int] = []
-        copies: list[int] = [1] * len(self.cards)
+        winning_cards: list[int] = [1] * len(self.cards) if part_two else []
 
         for cur_card, card in enumerate(self.cards):
             matching = len(
@@ -38,10 +37,8 @@ class Day04:
                     2 ** (matching - 1) if matching > 0 else 0
                 )
             else:
-                # Add copies to downstream cards
                 for idx in range(cur_card + 1, cur_card + matching + 1):
-                    copies[idx] += copies[cur_card]
-                winning_cards = copies
+                    winning_cards[idx] += winning_cards[cur_card]
 
         return winning_cards
 
