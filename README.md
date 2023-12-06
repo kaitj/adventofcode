@@ -34,3 +34,4 @@ directory for a given day
 | 03  | [Gear Ratios](https://adventofcode.com/2023/day/3)                     |    ✓     |
 | 04  | [Scratchcards](https://adventofcode.com/2023/day/4)                    |    ✓     |
 | 05  | [If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/5) |          |
+| 06  | [Wait For It](https://adventofcode.com/2023/day/6)                     |    ✓     |
