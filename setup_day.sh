@@ -3,10 +3,14 @@
 
 # Ensure at least 2 digits (e.g. 01, 02, 10, 11, etc.)
 day=$(printf "%02d" $1)
+year=2023
 
 # Create folder
 day_prefix=Day${day}
 mkdir -p "${day_prefix,,}"
+
+# Checkout branch
+git checkout -b "${year}/${day_prefix,,}"
 
 # Create python file
 py_file="${day_prefix,,}/${day_prefix,,}.py"
