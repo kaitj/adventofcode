@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-import multiprocessing
 from pathlib import Path
 from unittest import TestCase
 
@@ -25,25 +24,13 @@ class Day05:
                 map(int, almanac_lines[0].split(":")[1].split())
             )
             if part_two:
-                # Minimize overlapping
-                combined_ranges = sorted(
+                # Handle seed ranges
+                almanac["seeds"] = [  # pyright: ignore
                     (start, start + length)
                     for start, length in zip(
                         seed_ranges[::2], seed_ranges[1::2]
                     )
-                )
-
-                merged_ranges: list[tuple[int, int]] = []
-                current_start, current_end = combined_ranges[0]
-                for start, end in combined_ranges[1:]:
-                    if start <= current_end:
-                        current_end = max(current_end, end)
-                    else:
-                        merged_ranges.append((current_start, current_end))
-                        current_start, current_end = start, end
-                merged_ranges.append((current_start, current_end))
-
-                almanac["seeds"] = merged_ranges  # pyright: ignore
+                ]
             else:
                 almanac["seeds"] = seed_ranges  # pyright: ignore
 
@@ -57,6 +44,70 @@ class Day05:
                 ]
 
         return almanac  # pyright: ignore
+
+    def _find_overlap(
+        self, rnge1: tuple[int, int], rnge2: tuple[int, int]
+    ) -> tuple[int, int] | None:
+        rnge1_start, rnge1_end = rnge1
+        rnge2_start, rnge2_end = rnge2
+
+        overlap_start = max(rnge1_start, rnge2_start)
+        overlap_end = min(rnge1_end, rnge2_end)
+
+        return (
+            (overlap_start, overlap_end)
+            if overlap_start <= overlap_end
+            else None
+        )
+
+    def _shift_range(
+        self, rnge: tuple[int, int], length: int
+    ) -> tuple[int, int]:
+        range_start, range_end = rnge
+        return (range_start + length, range_end + length)  # pyright: ignore
+
+    def _split_range(
+        self, rnge: tuple[int, int], overlap: tuple[int, int]
+    ) -> set[tuple[int, int]]:
+        result: set[tuple[int, int]] = set()
+
+        overlap_start, overlap_end = overlap
+        rnge_start, rnge_end = rnge
+
+        if rnge_start < overlap_start:
+            result.add((rnge_start, overlap_start))
+
+        if rnge_end > overlap_end:
+            result.add((overlap_end, rnge_end))
+
+        return result
+
+    def process_seed_ranges(
+        self, seeds: list[tuple[int, int]]
+    ) -> list[tuple[int, int]]:
+        ranges = set(seeds)
+
+        for mapping_type in self.almanac.keys():
+            if mapping_type != "seeds":
+                shifted_ranges: set[tuple[int, int]] = set()
+                for to, start, length in self.almanac[  # pyright: ignore
+                    mapping_type
+                ]:
+                    for rnge in ranges.copy():
+                        if overlap := self._find_overlap(
+                            rnge, (start, start + length)  # pyright: ignore
+                        ):
+                            ranges.remove(rnge)
+                            ranges |= self._split_range(rnge, overlap)
+                            shifted_ranges.add(
+                                self._shift_range(
+                                    overlap, to - start  # pyright: ignore
+                                )
+                            )
+
+                ranges |= shifted_ranges
+
+        return list(ranges)
 
     def find_mapping(
         self, src_num: int, mapping_type: str
@@ -76,16 +127,10 @@ class Day05:
 
     def find_min_location(self) -> int:
         location = float("inf")
-        for seed in self.almanac["seeds"]:
-            if not isinstance(seed, tuple):
-                location = min(self.find_location(seed), location)
-            else:
-                print(seed)  # Processing check print statement
-                with multiprocessing.Pool(processes=8) as pool_obj:
-                    results = pool_obj.map(
-                        self._process_seed, range(seed[0], seed[1])
-                    )
-                    location = min(results + [location])
+        for seed_range in self.almanac["seeds"]:
+            if not isinstance(seed_range, tuple):
+                # Single seed
+                location = min(self.find_location(seed_range), location)
 
         return location  # pyright: ignore
 
@@ -103,7 +148,16 @@ class TestMain(TestCase):
         test = Day05(
             f"{Path(__file__).parent}/test_input_part2.txt", part_two=True
         )
-        self.assertEqual(test.find_min_location(), 46)
+        self.assertEqual(
+            min(
+                min(
+                    test.process_seed_ranges(
+                        test.almanac["seeds"]  # pyright: ignore
+                    )
+                )
+            ),
+            46,
+        )
 
 
 if __name__ == "__main__":
@@ -112,4 +166,12 @@ if __name__ == "__main__":
     print(solution.find_min_location())
     # Part 2
     solution = Day05(f"{Path(__file__).parent}/input.txt", part_two=True)
-    print(solution.find_min_location())
+    print(
+        min(
+            min(
+                solution.process_seed_ranges(
+                    solution.almanac["seeds"]  # pyright: ignore
+                )
+            )
+        )
+    )
