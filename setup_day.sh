@@ -10,6 +10,7 @@ day_prefix=Day${day}
 mkdir -p "${day_prefix,,}"
 
 # Checkout branch
+git pull origin main
 git checkout -b "${year}/${day_prefix,,}"
 
 # Create python file
