@@ -15,9 +15,7 @@ class Day06:
             for num in re.finditer(r"\d+", line)
         ]
 
-    def load_race_info(
-        self, input: str, part_two: bool
-    ) -> dict[str, list[int]]:
+    def load_race_info(self, input: str, part_two: bool) -> dict[str, list[int]]:
         with Path(input).open(encoding="utf-8") as in_file:
             regex = re.compile(r"[a-zA-Z]+")
             race_info: dict[str, list[int]] = (
@@ -25,9 +23,7 @@ class Day06:
                     regex.match(line).group(): [  # pyright: ignore
                         int(
                             "".join(  # pyright: ignore
-                                self._extract_numbers(
-                                    line, part_two
-                                )  # pyright: ignore
+                                self._extract_numbers(line, part_two)  # pyright: ignore
                             )
                         )
                     ]
@@ -35,9 +31,7 @@ class Day06:
                 }
                 if part_two
                 else {
-                    regex.match(
-                        line
-                    ).group(): self._extract_numbers(  # pyright: ignore
+                    regex.match(line).group(): self._extract_numbers(  # pyright: ignore
                         line, part_two
                     )
                     for line in in_file
@@ -71,9 +65,7 @@ class TestMain(TestCase):
         self.assertEqual(prod(test.find_winning_ways()), 288)
 
     def test_part2(self):
-        test = Day06(
-            f"{Path(__file__).parent}/test_input_part1.txt", part_two=True
-        )
+        test = Day06(f"{Path(__file__).parent}/test_input_part1.txt", part_two=True)
         self.assertEqual(test.races["Time"], [71530])
         self.assertEqual(test.races["Distance"], [940200])
         self.assertEqual(prod(test.find_winning_ways()), 71503)

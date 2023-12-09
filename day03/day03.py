@@ -12,9 +12,7 @@ class Number:
         self.value = value
         self.neighbors = self.find_neighbors(row=row, span=span)
 
-    def find_neighbors(
-        self, row: int, span: tuple[int, int]
-    ) -> set[tuple[int, int]]:
+    def find_neighbors(self, row: int, span: tuple[int, int]) -> set[tuple[int, int]]:
         return {
             (row + dx, col + dy)
             for dx, dy in itx.product((-1, 0, 1), (-1, 0, 1))
@@ -52,9 +50,7 @@ class Day03:
         if not part_two:
             return [num.value for num in nums if symbols & set(num.neighbors)]
         else:
-            parts_by_symbol: dict[tuple[int, int], list[int]] = defaultdict(
-                list
-            )
+            parts_by_symbol: dict[tuple[int, int], list[int]] = defaultdict(list)
             for symbol in symbols:
                 for num in nums:
                     if symbol in num.neighbors:

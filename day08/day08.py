@@ -17,9 +17,7 @@ class Day08:
     def __init__(self, input_path: str):
         self.network = self.load_network(input_path)
 
-    def load_network(
-        self, input_path: str
-    ) -> dict[str, str | dict[str, Node]]:
+    def load_network(self, input_path: str) -> dict[str, str | dict[str, Node]]:
         network: dict[str, str | dict[str, Node]] = {}
         with Path(input_path).open(encoding="utf-8") as in_file:
             content = in_file.read().split("\n\n")
@@ -28,8 +26,7 @@ class Day08:
 
         nodes = (re.findall(r"(\w+)", node) for node in content[1].split("\n"))
         network["nodes"] = {
-            line[0]: Node(node=line[0], left=line[1], right=line[2])
-            for line in nodes
+            line[0]: Node(node=line[0], left=line[1], right=line[2]) for line in nodes
         }
 
         return network
@@ -63,9 +60,7 @@ class TestMain(TestCase):
         test = Day08(f"{Path(__file__).parent}/test_input_part2.txt")
         start_nodes = ["11A", "22A"]
         self.assertEqual(
-            math.lcm(
-                *[test.find_steps_to_finish(node) for node in start_nodes]
-            ),
+            math.lcm(*[test.find_steps_to_finish(node) for node in start_nodes]),
             6,
         )
 

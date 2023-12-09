@@ -21,9 +21,7 @@ class Day04:
 
             return cards
 
-    def find_cards(
-        self, part_two: bool = False
-    ) -> list[int]:  # pyright: ignore
+    def find_cards(self, part_two: bool = False) -> list[int]:  # pyright: ignore
         winning_cards: list[int] = [1] * len(self.cards) if part_two else []
 
         for cur_card, card in enumerate(self.cards):
@@ -33,9 +31,7 @@ class Day04:
             )
 
             if not part_two:
-                winning_cards.append(
-                    2 ** (matching - 1) if matching > 0 else 0
-                )
+                winning_cards.append(2 ** (matching - 1) if matching > 0 else 0)
             else:
                 for idx in range(cur_card + 1, cur_card + matching + 1):
                     winning_cards[idx] += winning_cards[cur_card]
