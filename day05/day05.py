@@ -27,18 +27,14 @@ class Day05:
                 # Handle seed ranges
                 almanac["seeds"] = [  # pyright: ignore
                     (start, start + length)
-                    for start, length in zip(
-                        seed_ranges[::2], seed_ranges[1::2]
-                    )
+                    for start, length in zip(seed_ranges[::2], seed_ranges[1::2])
                 ]
             else:
                 almanac["seeds"] = seed_ranges  # pyright: ignore
 
             for almanac_line in almanac_lines[1:]:
                 map_type, mapping = almanac_line.split(":")
-                almanac[
-                    map_type.strip().replace(" map", "")  # pyright: ignore
-                ] = [
+                almanac[map_type.strip().replace(" map", "")] = [  # pyright: ignore
                     tuple(map(int, entry.split()))
                     for entry in mapping.lstrip().strip().split("\n")
                 ]
@@ -54,15 +50,9 @@ class Day05:
         overlap_start = max(rnge1_start, rnge2_start)
         overlap_end = min(rnge1_end, rnge2_end)
 
-        return (
-            (overlap_start, overlap_end)
-            if overlap_start <= overlap_end
-            else None
-        )
+        return (overlap_start, overlap_end) if overlap_start <= overlap_end else None
 
-    def _shift_range(
-        self, rnge: tuple[int, int], length: int
-    ) -> tuple[int, int]:
+    def _shift_range(self, rnge: tuple[int, int], length: int) -> tuple[int, int]:
         range_start, range_end = rnge
         return (range_start + length, range_end + length)  # pyright: ignore
 
@@ -90,9 +80,7 @@ class Day05:
         for mapping_type in self.almanac.keys():
             if mapping_type != "seeds":
                 shifted_ranges: set[tuple[int, int]] = set()
-                for to, start, length in self.almanac[  # pyright: ignore
-                    mapping_type
-                ]:
+                for to, start, length in self.almanac[mapping_type]:  # pyright: ignore
                     for rnge in ranges.copy():
                         if overlap := self._find_overlap(
                             rnge, (start, start + length)  # pyright: ignore
@@ -109,9 +97,7 @@ class Day05:
 
         return list(ranges)
 
-    def find_mapping(
-        self, src_num: int, mapping_type: str
-    ) -> int:  # pyright: ignore
+    def find_mapping(self, src_num: int, mapping_type: str) -> int:  # pyright: ignore
         for dest, src, rnge in self.almanac[mapping_type]:  # pyright: ignore
             if src <= src_num <= src + rnge:
                 return dest + (src_num - src)  # pyright: ignore
@@ -145,16 +131,10 @@ class TestMain(TestCase):
         self.assertEqual(test.find_min_location(), 35)
 
     def test_part2(self):
-        test = Day05(
-            f"{Path(__file__).parent}/test_input_part2.txt", part_two=True
-        )
+        test = Day05(f"{Path(__file__).parent}/test_input_part2.txt", part_two=True)
         self.assertEqual(
             min(
-                min(
-                    test.process_seed_ranges(
-                        test.almanac["seeds"]  # pyright: ignore
-                    )
-                )
+                min(test.process_seed_ranges(test.almanac["seeds"]))  # pyright: ignore
             ),
             46,
         )

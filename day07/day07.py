@@ -34,9 +34,7 @@ class Day07:
     def __init__(self, input_path: str, part_two: bool = False):
         self.hands = self.load_hands(input_path, part_two)
 
-    def load_hands(
-        self, input_path: str, part_two: bool
-    ) -> list[tuple[str, int, str]]:
+    def load_hands(self, input_path: str, part_two: bool) -> list[tuple[str, int, str]]:
         hands: list[tuple[str, int, str]] = []
         with Path(input_path).open(encoding="utf-8") as in_file:
             for line in in_file:
@@ -88,9 +86,7 @@ class Day07:
 
         return "high card"
 
-    def get_hand_keys(
-        self, hand: tuple[str, int, str]
-    ) -> tuple[int, list[int]]:
+    def get_hand_keys(self, hand: tuple[str, int, str]) -> tuple[int, list[int]]:
         hand_key = HAND_STRENGTH.get(hand[2], -1)
         cards_key = [CARD_STRENGTH[card] for card in hand[0]]
 
@@ -101,9 +97,7 @@ class Day07:
 
     def total_winnings(self) -> int:
         sorted_hands = self.sort_hands()
-        winnings = [
-            hands[1] * rank for rank, hands in enumerate(sorted_hands, start=1)
-        ]
+        winnings = [hands[1] * rank for rank, hands in enumerate(sorted_hands, start=1)]
 
         return sum(winnings)
 
@@ -114,9 +108,7 @@ class TestMain(TestCase):
         self.assertEqual(test.total_winnings(), 6440)
 
     def test_part2(self):
-        test = Day07(
-            f"{Path(__file__).parent}/test_input_part2.txt", part_two=True
-        )
+        test = Day07(f"{Path(__file__).parent}/test_input_part2.txt", part_two=True)
         self.assertEqual(test.total_winnings(), 5905)
 
 

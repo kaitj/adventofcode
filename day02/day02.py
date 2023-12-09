@@ -16,19 +16,14 @@ class Day02:
                 game, record = line.split(": ")
                 game = int(game.split(" ")[-1])
                 games[game] = {
-                    colour: [
-                        int(val)
-                        for val in re.findall(rf"(\d+) {colour}", record)
-                    ]
+                    colour: [int(val) for val in re.findall(rf"(\d+) {colour}", record)]
                     for colour in self.total_cubes.keys()
                 }
 
             return games
 
     def find_valid_games(self) -> list[int]:
-        valid_games = [
-            game for game in self.games.keys() if self.is_valid_game(game)
-        ]
+        valid_games = [game for game in self.games.keys() if self.is_valid_game(game)]
         return valid_games
 
     def is_valid_game(self, game: int) -> bool:
