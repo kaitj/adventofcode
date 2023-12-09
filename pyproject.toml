@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adventofcode"
-version = "2023.12.08"
+version = "2023.12.09"
 description = "Programming puzzles complete in Python for AoC."
 authors = ["Jason Kai <tkai@uwo.ca>"]
 readme = "README.md"
