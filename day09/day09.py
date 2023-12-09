@@ -33,12 +33,12 @@ class Day09:
         # Fill in placeholders
         for idx in range(no_seqs - 1, -1, -1):
             if idx == no_seqs - 1:
-                history_sequence[idx] = [0] + -1 * history_sequence[idx]
+                history_sequence[idx].insert(0, 0)
                 history_sequence[idx].append(0)
             else:
-                history_sequence[idx] = [
-                    history_sequence[idx][0] + -1 * history_sequence[idx + 1][0]
-                ] + history_sequence[idx]
+                history_sequence[idx].insert(
+                    0, history_sequence[idx][0] + -1 * history_sequence[idx + 1][0]
+                )
                 history_sequence[idx].append(
                     history_sequence[idx][-1] + history_sequence[idx + 1][-1]
                 )
