@@ -27,11 +27,13 @@ class TestMain(TestCase):
     def test_part1(self):
         test = ${day_prefix}(f"{Path(__file__).parent}/test_input_part1.txt")
 
-    # def test_part2(self):
-    #   test = ${day_prefix}(f"{Path(__file__).parent}/test_input_part2.txt")
+    def test_part2(self):
+        raise NotImplementedError()
+        test = ${day_prefix}(f"{Path(__file__).parent}/test_input_part2.txt")
 
-# if __name__ == "__main__":
-#   solution = ${day_prefix}(f"{Path(__file__).parent}/input.txt")
+if __name__ == "__main__":
+    raise NotImplementedError()
+    solution = ${day_prefix}(f"{Path(__file__).parent}/input.txt")
 EOF
 
 # Create input files
