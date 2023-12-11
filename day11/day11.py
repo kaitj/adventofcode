@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 import itertools as it
-from copy import deepcopy
 from pathlib import Path
-from pprint import pformat
 from unittest import TestCase
 
 """
@@ -17,12 +15,9 @@ MOVES = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
 class Day11:
     def __init__(self, input_path: str):
-        self.orig_image = self.load_image(input_path)
-        self.ORIG_ROWS = len(self.orig_image)
-        self.ORIG_COLS = len(self.orig_image[0])
-
-    def __repr__(self) -> str:
-        return pformat(self.orig_image)
+        self.image = self.load_image(input_path)
+        self.ROWS = len(self.image)
+        self.COLS = len(self.image[0])
 
     def load_image(self, input_path: str) -> list[list[str]]:
         with Path(input_path).open(encoding="utf-8") as in_file:
@@ -34,39 +29,52 @@ class Day11:
         empty_rows: list[int] = []
         non_empty_cols: set[int] = set()
 
-        for ridx, row in enumerate(self.orig_image):
+        for ridx, row in enumerate(self.image):
             if "#" not in row:
                 empty_rows.append(ridx)
-            for cidx in (cols := range(self.ORIG_COLS)):
+            for cidx in (cols := range(self.COLS)):
                 if row[cidx] == "#":
                     non_empty_cols.add(cidx)
 
         return empty_rows, list(set(cols) ^ non_empty_cols)  # pyright: ignore
 
-    def expand_universe(self) -> None:
-        rows, cols = self.find_empty_rows_cols()
-        expanded_image = deepcopy(self.orig_image)
-
-        # Expand cols first
-        for row in range(self.ORIG_ROWS):
-            for cidx, col in enumerate(cols):
-                expanded_image[row].insert(col + cidx, ".")
-        # Expand rows
-        for ridx, row in enumerate(rows):
-            expanded_image.insert(row + ridx, ["."] * len(expanded_image[row]))
-
-        self.image = expanded_image
-        self.ROWS = len(expanded_image)
-        self.COLS = len(expanded_image[0])
-
     def find_galaxies(self) -> None:
-        self.galaxies: dict[int, tuple[int, int]] = {}
+        self.galaxies: dict[tuple[int, int], tuple[int, int]] = {}
         galaxy = 0
         for ridx, row in enumerate(self.image):
             for cidx, col in enumerate(row):
                 if col == "#":
                     galaxy += 1
-                    self.galaxies[galaxy] = (ridx, cidx)
+                    self.galaxies[(ridx, cidx)] = (ridx, cidx)
+
+    def update_galaxy(
+        self,
+        coord: tuple[int, int],
+        empty_cols: list[int],
+        empty_rows: list[int],
+        factor: int,
+    ) -> tuple[int, int]:
+        y, x = coord
+
+        no_rows = sum(y > row for row in empty_rows) * factor
+        no_cols = sum(x > col for col in empty_cols) * factor
+
+        return y + no_rows, x + no_cols  # pyright: ignore
+
+    def expand(self, factor: int = 2) -> None:
+        if factor <= 1:
+            raise ValueError("Universe must expand (i.e. factor >= 1)")
+        factor -= 1
+
+        empty_rows, empty_cols = self.find_empty_rows_cols()
+
+        for galaxy in self.galaxies:
+            self.galaxies[galaxy] = self.update_galaxy(
+                coord=galaxy,
+                empty_cols=empty_cols,
+                empty_rows=empty_rows,
+                factor=factor,
+            )
 
     def shortest_path(self, start: tuple[int, int], end: tuple[int, int]) -> int:
         return abs(start[0] - end[0]) + abs(start[1] - end[1])
@@ -81,31 +89,48 @@ class Day11:
 class TestMain(TestCase):
     def test_part1(self):
         test = Day11(f"{Path(__file__).parent}/test_input_part1.txt")
-        test.expand_universe()
-        self.assertEqual(len(test.image), len(test.orig_image) + 2)
-        self.assertEqual(len(test.image[0]), len(test.orig_image[0]) + 3)
         test.find_galaxies()
+        test.expand()
+        test_keys = [key for key in test.galaxies]
         self.assertEqual(
-            test.shortest_path(start=test.galaxies[5], end=test.galaxies[9]), 9
+            test.shortest_path(
+                start=test.galaxies[test_keys[4]], end=test.galaxies[test_keys[8]]
+            ),
+            9,
         )
         self.assertEqual(
-            test.shortest_path(start=test.galaxies[1], end=test.galaxies[7]), 15
+            test.shortest_path(
+                start=test.galaxies[test_keys[0]], end=test.galaxies[test_keys[6]]
+            ),
+            15,
         )
         self.assertEqual(
-            test.shortest_path(start=test.galaxies[3], end=test.galaxies[6]), 17
+            test.shortest_path(
+                start=test.galaxies[test_keys[2]], end=test.galaxies[test_keys[5]]
+            ),
+            17,
         )
         self.assertEqual(
-            test.shortest_path(start=test.galaxies[8], end=test.galaxies[9]), 5
+            test.shortest_path(
+                start=test.galaxies[test_keys[7]], end=test.galaxies[test_keys[8]]
+            ),
+            5,
         )
         self.assertEqual(sum(test.find_shortest_paths()), 374)
 
     def test_part2(self):
-        raise NotImplementedError()
-        test = Day11(f"{Path(__file__).parent}/test_input_part2.txt")
+        test = Day11(f"{Path(__file__).parent}/test_input_part1.txt")
+        test.find_galaxies()
+        test.expand(factor=10)
+        self.assertEqual(sum(test.find_shortest_paths()), 1030)
+        test.expand(factor=100)
+        self.assertEqual(sum(test.find_shortest_paths()), 8410)
 
 
 if __name__ == "__main__":
     solution = Day11(f"{Path(__file__).parent}/input.txt")
-    solution.expand_universe()
     solution.find_galaxies()
+    solution.expand()
+    print(sum(solution.find_shortest_paths()))
+    solution.expand(factor=1_000_000)
     print(sum(solution.find_shortest_paths()))
