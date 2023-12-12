@@ -2,7 +2,8 @@
 import re
 from math import prod
 from pathlib import Path
-from unittest import TestCase
+
+import pytest
 
 
 class Day06:
@@ -56,19 +57,20 @@ class Day06:
         return finish
 
 
-class TestMain(TestCase):
-    def test_part1(self):
+class TestMain:
+    @pytest.mark.parametrize(
+        "time, distance, answer", [(7, 9, 4), (15, 40, 8), (30, 200, 9)]
+    )
+    def test_part1(self, time: int, distance: int, answer: int):
         test = Day06(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.num_finish(time=7, distance=9), 4)
-        self.assertEqual(test.num_finish(time=15, distance=40), 8)
-        self.assertEqual(test.num_finish(time=30, distance=200), 9)
-        self.assertEqual(prod(test.find_winning_ways()), 288)
+        assert test.num_finish(time=time, distance=distance) == answer
+        assert prod(test.find_winning_ways()) == 288
 
-    def test_part2(self):
+    @pytest.mark.parametrize("key, answer", [("Time", 71530), ("Distance", 940200)])
+    def test_part2(self, key: str, answer: int):
         test = Day06(f"{Path(__file__).parent}/test_input_part1.txt", part_two=True)
-        self.assertEqual(test.races["Time"], [71530])
-        self.assertEqual(test.races["Distance"], [940200])
-        self.assertEqual(prod(test.find_winning_ways()), 71503)
+        assert test.races[key] == [answer]
+        assert prod(test.find_winning_ways()) == 71503
 
 
 if __name__ == "__main__":

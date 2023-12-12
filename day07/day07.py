@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 from collections import Counter
 from pathlib import Path
-from unittest import TestCase
 
 CARD_STRENGTH = {
     "2": 1,
@@ -102,14 +101,14 @@ class Day07:
         return sum(winnings)
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day07(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.total_winnings(), 6440)
+        assert test.total_winnings() == 6440
 
     def test_part2(self):
         test = Day07(f"{Path(__file__).parent}/test_input_part2.txt", part_two=True)
-        self.assertEqual(test.total_winnings(), 5905)
+        assert test.total_winnings() == 5905
 
 
 if __name__ == "__main__":

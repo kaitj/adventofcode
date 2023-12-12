@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from pathlib import Path
-from unittest import TestCase
 
 
 class Day04:
@@ -39,16 +38,16 @@ class Day04:
         return winning_cards
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day04(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(sum(test.find_cards()), 13)
+        assert sum(test.find_cards()) == 13
 
     def test_part2(self):
         test = Day04(f"{Path(__file__).parent}/test_input_part2.txt")
         test_copies = test.find_cards(part_two=True)
-        self.assertEqual(test_copies, [1, 2, 4, 8, 14, 1])
-        self.assertEqual(sum(test_copies), 30)
+        assert test_copies == [1, 2, 4, 8, 14, 1]
+        assert sum(test_copies) == 30
 
 
 if __name__ == "__main__":

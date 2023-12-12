@@ -3,7 +3,6 @@ import math
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from unittest import TestCase
 
 
 @dataclass
@@ -24,7 +23,7 @@ class Day08:
 
         network["instructions"] = content[0]
 
-        nodes = (re.findall(r"(\w+)", node) for node in content[1].split("\n"))
+        nodes = (re.findall(r"(\w+)", node) for node in content[1].strip().split("\n"))
         network["nodes"] = {
             line[0]: Node(node=line[0], left=line[1], right=line[2]) for line in nodes
         }
@@ -51,18 +50,15 @@ class Day08:
         return steps
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day08(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.find_steps_to_finish("AAA"), 2)
+        assert test.find_steps_to_finish("AAA") == 2
 
     def test_part2(self):
         test = Day08(f"{Path(__file__).parent}/test_input_part2.txt")
         start_nodes = ["11A", "22A"]
-        self.assertEqual(
-            math.lcm(*[test.find_steps_to_finish(node) for node in start_nodes]),
-            6,
-        )
+        assert math.lcm(*[test.find_steps_to_finish(node) for node in start_nodes]) == 6
 
 
 if __name__ == "__main__":

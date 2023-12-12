@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 import itertools as it
 from pathlib import Path
-from unittest import TestCase
+
+import pytest
 
 """
 - '.' = empty space
@@ -86,45 +87,30 @@ class Day11:
         ]
 
 
-class TestMain(TestCase):
-    def test_part1(self):
+class TestMain:
+    @pytest.mark.parametrize(
+        "g1, g2, answer", [(5, 9, 9), (1, 7, 15), (3, 6, 17), (8, 9, 5)]
+    )
+    def test_part1(self, g1: int, g2: int, answer: int):
         test = Day11(f"{Path(__file__).parent}/test_input_part1.txt")
         test.find_galaxies()
         test.expand()
         test_keys = [key for key in test.galaxies]
-        self.assertEqual(
+        assert (
             test.shortest_path(
-                start=test.galaxies[test_keys[4]], end=test.galaxies[test_keys[8]]
-            ),
-            9,
+                start=test.galaxies[test_keys[g1 - 1]],
+                end=test.galaxies[test_keys[g2 - 1]],
+            )
+            == answer
         )
-        self.assertEqual(
-            test.shortest_path(
-                start=test.galaxies[test_keys[0]], end=test.galaxies[test_keys[6]]
-            ),
-            15,
-        )
-        self.assertEqual(
-            test.shortest_path(
-                start=test.galaxies[test_keys[2]], end=test.galaxies[test_keys[5]]
-            ),
-            17,
-        )
-        self.assertEqual(
-            test.shortest_path(
-                start=test.galaxies[test_keys[7]], end=test.galaxies[test_keys[8]]
-            ),
-            5,
-        )
-        self.assertEqual(sum(test.find_shortest_paths()), 374)
+        assert sum(test.find_shortest_paths()) == 374
 
-    def test_part2(self):
+    @pytest.mark.parametrize("factor, answer", [(10, 1030), (100, 8410)])
+    def test_part2(self, factor: int, answer: int):
         test = Day11(f"{Path(__file__).parent}/test_input_part1.txt")
         test.find_galaxies()
-        test.expand(factor=10)
-        self.assertEqual(sum(test.find_shortest_paths()), 1030)
-        test.expand(factor=100)
-        self.assertEqual(sum(test.find_shortest_paths()), 8410)
+        test.expand(factor=factor)
+        assert sum(test.find_shortest_paths()) == answer
 
 
 if __name__ == "__main__":

@@ -4,7 +4,6 @@ import re
 from collections import defaultdict
 from math import prod
 from pathlib import Path
-from unittest import TestCase
 
 
 class Number:
@@ -59,22 +58,22 @@ class Day03:
             return parts_by_symbol
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day03(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(sum(test.find_gear_part()), 4361)  # pyright: ignore
+        assert sum(test.find_gear_part()) == 4361  # pyright: ignore
 
     def test_part2(self):
         test = Day03(f"{Path(__file__).parent}/test_input_part2.txt")
-        self.assertEqual(
+        assert (
             sum(
                 prod(val)  # pyright: ignore
                 for val in test.find_gear_part(  # pyright: ignore
                     part_two=True
                 ).values()  # pyright: ignore
                 if len(val) == 2  # pyright: ignore
-            ),
-            467835,
+            )
+            == 467835
         )
 
 

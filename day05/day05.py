@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from pathlib import Path
-from unittest import TestCase
 
 
 class Day05:
@@ -124,19 +123,17 @@ class Day05:
         return int(self.find_location(seed_val))
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day05(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.find_mapping(53, "seed-to-soil"), 55)
-        self.assertEqual(test.find_min_location(), 35)
+        assert test.find_mapping(53, "seed-to-soil") == 55
+        assert test.find_min_location() == 35
 
     def test_part2(self):
         test = Day05(f"{Path(__file__).parent}/test_input_part2.txt", part_two=True)
-        self.assertEqual(
-            min(
-                min(test.process_seed_ranges(test.almanac["seeds"]))  # pyright: ignore
-            ),
-            46,
+        assert (
+            min(min(test.process_seed_ranges(test.almanac["seeds"])))  # pyright: ignore
+            == 46
         )
 
 

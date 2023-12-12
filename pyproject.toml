@@ -4,6 +4,10 @@ version = "2023.12.11"
 description = "Programming puzzles complete in Python for AoC."
 authors = ["Jason Kai <tkai@uwo.ca>"]
 readme = "README.md"
+packages = [{ include = "aoc" }]
+
+[tool.poetry.scripts]
+setup_day = 'aoc.setup_day:main'
 
 [tool.poetry.dependencies]
 python = ">=3.8"
@@ -12,8 +16,9 @@ python = ">=3.8"
 black = ">=22.1.0"
 isort = ">=5.10.1"
 pre-commit = ">=2.17.0"
-pyright = "^1.1.334"
+pyright = ">=1.1.334"
 ruff = ">=0.1.4"
+pytest = ">=7.4.3"
 
 [build-system]
 requires = ["poetry-core"]
