@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 
 class Day00:
     def __init__(self, input_path: str):
@@ -17,6 +19,17 @@ class TestMain:
         # test = Day00(f"{Path(__file__).parent}/test_input_part2.txt")
 
 
-if __name__ == "__main__":
-    raise NotImplementedError()
+def main():
+    args = day_parser().parse_args()
+
     solution = Day00(f"{Path(__file__).parent}/input.txt")
+    if args.part == 1:
+        raise NotImplementedError()
+    elif args.part == 2:
+        raise NotImplementedError()
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

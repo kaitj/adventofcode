@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import subprocess
+from argparse import ArgumentParser
 from pathlib import Path
 
 TOP_DIR = Path(__file__).parent.parent
@@ -14,3 +15,18 @@ def get_cookie_headers() -> dict[str, str]:
     with TOP_DIR.joinpath(".cookie").open() as in_file:
         contents = in_file.read().strip()
     return {"Cookie": contents, "User-Agent": "kaitj"}
+
+
+def day_parser() -> ArgumentParser:
+    parser = ArgumentParser()
+    parser.add_argument(
+        "-p",
+        "--part",
+        type=int,
+        choices=[1, 2],
+        default=1,
+        dest="part",
+        action="store",
+    )
+
+    return parser
