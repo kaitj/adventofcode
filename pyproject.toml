@@ -8,6 +8,7 @@ packages = [{ include = "aoc" }]
 
 [tool.poetry.scripts]
 init_day = "aoc.init_day:init_day"
+submit = "aoc.submit:submit_solution"
 
 [tool.poetry.dependencies]
 python = ">=3.8"
