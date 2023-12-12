@@ -4,6 +4,10 @@ version = "2023.12.11"
 description = "Programming puzzles complete in Python for AoC."
 authors = ["Jason Kai <tkai@uwo.ca>"]
 readme = "README.md"
+packages = [{ include = "aoc" }]
+
+[tool.poetry.scripts]
+setup_day = 'aoc.setup_day:main'
 
 [tool.poetry.dependencies]
 python = ">=3.8"
