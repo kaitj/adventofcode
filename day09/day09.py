@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from pathlib import Path
-from unittest import TestCase
 
 
 class Day09:
@@ -55,16 +54,16 @@ class Day09:
         return placeholders
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day09(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.find_placeholders(), [18, 28, 68])
-        self.assertEqual(sum(test.find_placeholders()), 114)
+        assert test.find_placeholders() == [18, 28, 68]
+        assert sum(test.find_placeholders()) == 114
 
     def test_part2(self):
         test = Day09(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.find_placeholders(True), [-3, 0, 5])
-        self.assertEqual(sum(test.find_placeholders(True)), 2)
+        assert test.find_placeholders(part_two=True) == [-3, 0, 5]
+        assert sum(test.find_placeholders(part_two=True)) == 2
 
 
 if __name__ == "__main__":

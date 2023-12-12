@@ -4,7 +4,6 @@
 """
 import re
 from pathlib import Path
-from unittest import TestCase
 
 VALID_NUM = {
     "one": "o1e",
@@ -48,14 +47,14 @@ class Day01:
         return sum(self.get_calibration_value(part_two=part_two))
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day01(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.sum_calibration_value(), 142)
+        assert test.sum_calibration_value() == 142
 
     def test_part2(self):
         test = Day01(f"{Path(__file__).parent}/test_input_part2.txt")
-        self.assertEqual(test.sum_calibration_value(part_two=True), 281)
+        assert test.sum_calibration_value(part_two=True) == 281
 
 
 if __name__ == "__main__":

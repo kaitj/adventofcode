@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from pathlib import Path
-from unittest import TestCase
 
 # Map describing how pipes can be connected with next position
 VALID_MOVES = {
@@ -81,15 +80,15 @@ class Day10:
         return area
 
 
-class TestMain(TestCase):
+class TestMain:
     def test_part1(self):
         test = Day10(f"{Path(__file__).parent}/test_input_part1.txt")
-        self.assertEqual(test.find_max_distance(), 8)
+        assert test.find_max_distance() == 8
 
     def test_part2(self):
         test = Day10(f"{Path(__file__).parent}/test_input_part2.txt")
         test.find_max_distance()
-        self.assertEqual(test.find_enclosed_area(), 10)
+        assert test.find_enclosed_area() == 10
 
 
 if __name__ == "__main__":
