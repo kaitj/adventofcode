@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 # Map describing how pipes can be connected with next position
 VALID_MOVES = {
     "-": [(0, 1), (0, -1)],
@@ -91,7 +93,18 @@ class TestMain:
         assert test.find_enclosed_area() == 10
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day10(f"{Path(__file__).parent}/input.txt")
-    print(solution.find_max_distance())
-    print(solution.find_enclosed_area())
+    distance = solution.find_max_distance()
+    if args.part == 1:
+        print(distance)
+    elif args.part == 2:
+        print(solution.find_enclosed_area())
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

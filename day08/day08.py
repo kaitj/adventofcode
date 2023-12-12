@@ -4,6 +4,8 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 
 @dataclass
 class Node:
@@ -61,19 +63,29 @@ class TestMain:
         assert math.lcm(*[test.find_steps_to_finish(node) for node in start_nodes]) == 6
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day08(f"{Path(__file__).parent}/input.txt")
-    print(solution.find_steps_to_finish("AAA"))
-    start_nodes = [  # pyright: ignore
-        node
-        for node in solution.network["nodes"].keys()  # pyright: ignore
-        if node.endswith("A")  # pyright: ignore
-    ]
-    print(
-        math.lcm(
-            *[
-                solution.find_steps_to_finish(node)  # pyright: ignore
-                for node in start_nodes  # pyright: ignore
-            ]
+    if args.part == 1:
+        print(solution.find_steps_to_finish("AAA"))
+    elif args.part == 2:
+        start_nodes = [  # pyright: ignore
+            node
+            for node in solution.network["nodes"].keys()  # pyright: ignore
+            if node.endswith("A")  # pyright: ignore
+        ]
+        print(
+            math.lcm(
+                *[
+                    solution.find_steps_to_finish(node)  # pyright: ignore
+                    for node in start_nodes  # pyright: ignore
+                ]
+            )
         )
-    )
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

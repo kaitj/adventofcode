@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 
 class Day09:
     def __init__(self, input_path: str):
@@ -66,7 +68,17 @@ class TestMain:
         assert sum(test.find_placeholders(part_two=True)) == 2
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day09(f"{Path(__file__).parent}/input.txt")
-    print(sum(solution.find_placeholders()))
-    print(sum(solution.find_placeholders(part_two=True)))
+    if args.part == 1:
+        print(sum(solution.find_placeholders()))
+    elif args.part == 2:
+        print(sum(solution.find_placeholders(part_two=True)))
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 
 class Day04:
     def __init__(self, input: str):
@@ -50,7 +52,17 @@ class TestMain:
         assert sum(test_copies) == 30
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day04(f"{Path(__file__).parent}/input.txt")
-    print(sum(solution.find_cards()))
-    print(sum(solution.find_cards(part_two=True)))
+    if args.part == 1:
+        print(sum(solution.find_cards()))
+    elif args.part == 2:
+        print(sum(solution.find_cards(part_two=True)))
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

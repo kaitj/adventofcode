@@ -2,6 +2,8 @@
 from collections import Counter
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 CARD_STRENGTH = {
     "2": 1,
     "3": 2,
@@ -111,8 +113,18 @@ class TestMain:
         assert test.total_winnings() == 5905
 
 
+def main():
+    args = day_parser().parse_args()
+
+    if args.part == 1:
+        solution = Day07(f"{Path(__file__).parent}/input.txt")
+        print(solution.total_winnings())
+    elif args.part == 2:
+        solution = Day07(f"{Path(__file__).parent}/input.txt", part_two=True)
+        print(solution.total_winnings())
+    else:
+        raise ValueError("Not a valid part")
+
+
 if __name__ == "__main__":
-    solution = Day07(f"{Path(__file__).parent}/input.txt")
-    print(solution.total_winnings())
-    solution = Day07(f"{Path(__file__).parent}/input.txt", part_two=True)
-    print(solution.total_winnings())
+    main()

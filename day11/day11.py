@@ -4,6 +4,8 @@ from pathlib import Path
 
 import pytest
 
+from aoc.utils import day_parser
+
 """
 - '.' = empty space
 - '#' = galaxy
@@ -113,10 +115,20 @@ class TestMain:
         assert sum(test.find_shortest_paths()) == answer
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day11(f"{Path(__file__).parent}/input.txt")
     solution.find_galaxies()
-    solution.expand()
-    print(sum(solution.find_shortest_paths()))
-    solution.expand(factor=1_000_000)
-    print(sum(solution.find_shortest_paths()))
+    if args.part == 1:
+        solution.expand()
+        print(sum(solution.find_shortest_paths()))
+    elif args.part == 2:
+        solution.expand(factor=1_000_000)
+        print(sum(solution.find_shortest_paths()))
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

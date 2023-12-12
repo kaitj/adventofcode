@@ -5,6 +5,8 @@
 import re
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 VALID_NUM = {
     "one": "o1e",
     "two": "t2o",
@@ -57,7 +59,17 @@ class TestMain:
         assert test.sum_calibration_value(part_two=True) == 281
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day01(f"{Path(__file__).parent}/input.txt")
-    print(solution.sum_calibration_value())
-    print(solution.sum_calibration_value(part_two=True))
+    if args.part == 1:
+        print(solution.sum_calibration_value())
+    elif args.part == 2:
+        print(solution.sum_calibration_value(part_two=True))
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

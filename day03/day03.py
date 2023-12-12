@@ -5,6 +5,8 @@ from collections import defaultdict
 from math import prod
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 
 class Number:
     def __init__(self, value: int, row: int, span: tuple[int, int]):
@@ -77,15 +79,26 @@ class TestMain:
         )
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day03(f"{Path(__file__).parent}/input.txt")
-    print(sum(solution.find_gear_part()))  # pyright: ignore
-    print(
-        sum(
-            prod(val)  # pyright: ignore
-            for val in (  # pyright: ignore
-                solution.find_gear_part(part_two=True)
-            ).values()  # pyright: ignore
-            if len(val) == 2  # pyright: ignore
+    if args.part == 1:
+        print(sum(solution.find_gear_part()))  # pyright: ignore
+    elif args.part == 2:
+        print(
+            sum(
+                prod(val)  # pyright: ignore
+                for val in (  # pyright: ignore
+                    solution.find_gear_part(part_two=True)
+                ).values()  # pyright: ignore
+                if len(val) == 2  # pyright: ignore
+            )
         )
-    )
+
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

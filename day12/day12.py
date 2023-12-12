@@ -5,6 +5,8 @@ from typing import NamedTuple
 
 import pytest
 
+from aoc.utils import day_parser
+
 
 class Spring(NamedTuple):
     pattern: str
@@ -114,8 +116,18 @@ class TestMain:
         assert test.find_all_spring_arrangements()
 
 
+def main():
+    args = day_parser().parse_args()
+
+    if args.part == 1:
+        solution_p1 = Day12(f"{Path(__file__).parent}/input.txt")
+        print(sum(solution_p1.find_all_spring_arrangements()))
+    elif args.part == 2:
+        solution_p2 = Day12(f"{Path(__file__).parent}/input.txt", factor=5)
+        print(sum(solution_p2.find_all_spring_arrangements()))
+    else:
+        raise ValueError("Not a valid part")
+
+
 if __name__ == "__main__":
-    solution_p1 = Day12(f"{Path(__file__).parent}/input.txt")
-    print(sum(solution_p1.find_all_spring_arrangements()))
-    solution_p2 = Day12(f"{Path(__file__).parent}/input.txt", factor=5)
-    print(sum(solution_p2.find_all_spring_arrangements()))
+    main()

@@ -2,6 +2,8 @@
 import re
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 
 class Day02:
     def __init__(self, input: str):
@@ -51,7 +53,17 @@ class TestMain:
         assert sum(test.find_game_power()) == 2286
 
 
-if __name__ == "__main__":
+def main():
+    args = day_parser().parse_args()
+
     solution = Day02(f"{Path(__file__).parent}/input.txt")
-    print(sum(solution.find_valid_games()))
-    print(sum(solution.find_game_power()))
+    if args.part == 1:
+        print(sum(solution.find_valid_games()))
+    elif args.part == 2:
+        print(sum(solution.find_game_power()))
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()

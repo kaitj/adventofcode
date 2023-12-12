@@ -5,6 +5,8 @@ from pathlib import Path
 
 import pytest
 
+from aoc.utils import day_parser
+
 
 class Day06:
     def __init__(self, input: str, part_two: bool = False):
@@ -73,8 +75,18 @@ class TestMain:
         assert prod(test.find_winning_ways()) == 71503
 
 
+def main():
+    args = day_parser().parse_args()
+
+    if args.part == 1:
+        solution_p1 = Day06(f"{Path(__file__).parent}/input.txt")
+        print(prod(solution_p1.find_winning_ways()))
+    elif args.part == 2:
+        solution_p2 = Day06(f"{Path(__file__).parent}/input.txt", part_two=True)
+        print(prod(solution_p2.find_winning_ways()))
+    else:
+        raise ValueError("Not a valid part")
+
+
 if __name__ == "__main__":
-    solution_p1 = Day06(f"{Path(__file__).parent}/input.txt")
-    print(prod(solution_p1.find_winning_ways()))
-    solution_p2 = Day06(f"{Path(__file__).parent}/input.txt", part_two=True)
-    print(prod(solution_p2.find_winning_ways()))
+    main()

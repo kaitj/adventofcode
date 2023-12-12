@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 from pathlib import Path
 
+from aoc.utils import day_parser
+
 
 class Day05:
     def __init__(self, input: str, part_two: bool = False) -> None:
@@ -137,18 +139,26 @@ class TestMain:
         )
 
 
-if __name__ == "__main__":
-    # Part 1
-    solution = Day05(f"{Path(__file__).parent}/input.txt")
-    print(solution.find_min_location())
-    # Part 2
-    solution = Day05(f"{Path(__file__).parent}/input.txt", part_two=True)
-    print(
-        min(
+def main():
+    args = day_parser().parse_args()
+
+    if args.part == 1:
+        solution = Day05(f"{Path(__file__).parent}/input.txt")
+        print(solution.find_min_location())
+    elif args.part == 2:
+        solution = Day05(f"{Path(__file__).parent}/input.txt", part_two=True)
+        print(
             min(
-                solution.process_seed_ranges(
-                    solution.almanac["seeds"]  # pyright: ignore
+                min(
+                    solution.process_seed_ranges(
+                        solution.almanac["seeds"]  # pyright: ignore
+                    )
                 )
             )
         )
-    )
+    else:
+        raise ValueError("Not a valid part")
+
+
+if __name__ == "__main__":
+    main()
