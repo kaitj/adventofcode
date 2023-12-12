@@ -12,15 +12,18 @@ class Spring(NamedTuple):
 
 
 class Day12:
-    def __init__(self, input_path: str):
-        self.springs = self.load_springs(input_path)
+    def __init__(self, input_path: str, factor: int = 1):
+        self.springs = self.load_springs(input_path, factor)
 
-    def load_springs(self, input_path: str) -> list[Spring]:
+    def load_springs(self, input_path: str, factor: int) -> list[Spring]:
         with Path(input_path).open(encoding="utf-8") as in_file:
             springs = [
                 Spring(
-                    pattern=line.split()[0],
-                    condition=tuple(map(int, line.split()[1].strip().split(","))),
+                    pattern=line.split()[0]
+                    if factor == 1
+                    else ("".join((line.split()[0], "?")) * factor)[:-1],
+                    condition=tuple(map(int, line.split()[1].strip().split(",")))
+                    * factor,
                 )
                 for line in in_file
             ]
@@ -88,11 +91,31 @@ class TestMain:
         )
         assert sum(test.find_all_spring_arrangements()) == 21
 
-    def test_part2(self) -> None:
-        raise NotImplementedError()
-        # test = Day12(f"{Path(__file__).parent}/test_input_part2.txt")
+    @pytest.mark.parametrize(
+        "spring, answer",
+        [
+            (0, 1),
+            (1, 16384),
+            (2, 1),
+            (3, 16),
+            (4, 2500),
+            (5, 506250),
+        ],
+    )
+    def test_part2(self, spring: int, answer: int) -> None:
+        test = Day12(f"{Path(__file__).parent}/test_input_part1.txt", factor=5)
+        assert (
+            test.calc_arrangements(
+                pattern=test.springs[spring].pattern,
+                condition=test.springs[spring].condition,
+            )
+            == answer
+        )
+        assert test.find_all_spring_arrangements()
 
 
 if __name__ == "__main__":
-    solution = Day12(f"{Path(__file__).parent}/input.txt")
-    print(sum(solution.find_all_spring_arrangements()))
+    solution_p1 = Day12(f"{Path(__file__).parent}/input.txt")
+    print(sum(solution_p1.find_all_spring_arrangements()))
+    solution_p2 = Day12(f"{Path(__file__).parent}/input.txt", factor=5)
+    print(sum(solution_p2.find_all_spring_arrangements()))
