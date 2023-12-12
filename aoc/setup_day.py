@@ -47,10 +47,10 @@ def main():
         raise TypeError("Day should be provided as an integer (e.g. 1, 2, 10, etc)")
     DAY = f"day{args.day:02d}"
 
-    # Github actions
-    # shell("git checkout main")
-    # shell("git pull -r origin main")
-    # shell(f"git checkout -b {YEAR}/{DAY}")
+    # git commands
+    shell("git checkout main")
+    shell("git pull -r origin main")
+    shell(f"git checkout -b {YEAR}/{DAY}")
 
     # Update template for current day
     day_dir = Path(TOP_DIR).joinpath(DAY)
