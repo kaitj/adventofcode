@@ -2,5 +2,10 @@
 *.code-workspace
 .vscode
 
-# Python
+# Caches
 __pycache__
+.pytest_cache/
+.ruff_cache/
+
+# AOC cookie
+.cookie
