@@ -10,6 +10,7 @@ def shell(cmd: str) -> subprocess.CompletedProcess[bytes]:
 
 
 def get_cookie_headers() -> dict[str, str]:
+    # Note: Cookie file (.cookie) may need to be updated with "session=" prefix
     with TOP_DIR.joinpath(".cookie").open() as in_file:
         contents = in_file.read().strip()
     return {"Cookie": contents, "User-Agent": "kaitj"}
