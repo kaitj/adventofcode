@@ -22,9 +22,10 @@ def get_parser() -> ArgumentParser:
     # Required arguments
     parser.add_argument(
         "day",
-        default=00,
         type=int,
-        help="Current day of advent of code",
+        choices=range(1, 26),
+        metavar="[1-25]",
+        help="Day of advent of code to setup",
     )
 
     # Version (year)
@@ -43,8 +44,6 @@ def main():
     # Get arguments
     args = get_parser().parse_args()
 
-    if not isinstance(args.day, int):
-        raise TypeError("Day should be provided as an integer (e.g. 1, 2, 10, etc)")
     DAY = f"day{args.day:02d}"
 
     # git commands
