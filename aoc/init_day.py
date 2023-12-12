@@ -15,7 +15,7 @@ def shell(cmd: str) -> subprocess.CompletedProcess[bytes]:
 
 
 def _get_cookie_headers() -> dict[str, str]:
-    with Path(__file__).parent.joinpath(".cookie").open() as in_file:
+    with TOP_DIR.joinpath(".cookie").open() as in_file:
         contents = in_file.read().strip()
     return {"Cookie": contents, "User-Agent": "kaitj"}
 
