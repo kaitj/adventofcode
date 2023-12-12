@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{ include = "aoc" }]
 
 [tool.poetry.scripts]
-setup_day = 'aoc.setup_day:main'
+init_day = 'aoc.init_day:main'
 
 [tool.poetry.dependencies]
 python = ">=3.8"
