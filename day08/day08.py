@@ -40,9 +40,7 @@ class Day08:
         while not cur_node.node.endswith("Z"):  # pyright: ignore
             cur_node = self.network["nodes"].get(  # pyright: ignore
                 cur_node.right  # pyright: ignore
-                if self.network["instructions"][
-                    steps % num_instructions
-                ]  # pyright: ignore
+                if self.network["instructions"][steps % num_instructions]  # pyright: ignore
                 == "R"
                 else cur_node.left,  # pyright: ignore
                 None,

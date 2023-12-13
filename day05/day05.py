@@ -84,13 +84,15 @@ class Day05:
                 for to, start, length in self.almanac[mapping_type]:  # pyright: ignore
                     for rnge in ranges.copy():
                         if overlap := self._find_overlap(
-                            rnge, (start, start + length)  # pyright: ignore
+                            rnge,
+                            (start, start + length),  # pyright: ignore
                         ):
                             ranges.remove(rnge)
                             ranges |= self._split_range(rnge, overlap)
                             shifted_ranges.add(
                                 self._shift_range(
-                                    overlap, to - start  # pyright: ignore
+                                    overlap,
+                                    to - start,  # pyright: ignore
                                 )
                             )
 

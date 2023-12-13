@@ -65,7 +65,8 @@ class Day07:
                 del card_count["J"]
                 for _ in range(joker_count):
                     max_key = max(  # pyright: ignore
-                        card_count, key=card_count.get  # pyright: ignore
+                        card_count,
+                        key=card_count.get,  # pyright: ignore
                     )
                     card_count[max_key] += 1  # pyright: ignore
 
