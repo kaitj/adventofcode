@@ -13,19 +13,7 @@ repos:
     hooks:
       - name: ruff
         id: ruff
-        entry: poetry run ruff --fix ./
-        language: system
-        types_or: [cython, pyi, python]
-
-      - name: isort
-        id: isort
-        entry: poetry run isort ./
-        language: system
-        types_or: [cython, pyi, python]
-
-      - name: black
-        id: black
-        entry: poetry run black ./
+        entry: poetry run ruff format ./
         language: system
         types_or: [cython, pyi, python]
 
