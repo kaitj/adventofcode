@@ -11,9 +11,15 @@ repos:
 
   - repo: local
     hooks:
-      - name: ruff
-        id: ruff
+      - name: ruff-format
+        id: ruff-format
         entry: poetry run ruff format ./
+        language: system
+        types_or: [cython, pyi, python]
+
+      - name: ruff-lint
+        id: ruff-lint
+        entry: poetry run ruff ./
         language: system
         types_or: [cython, pyi, python]
 
