@@ -5,23 +5,37 @@ Python.
 
 ## Notes
 
-## Code
+## Setup
 
-To setup the directory structure for a given day:
+First grab your session cookie from your browser and save it to a `.cookie` file in the
+top-level directory. This will allow you to grab your associated input directly, as well
+as submit your solution via the terminal. Afterwards, setup your AoC virtual environment
+by running the following:
+
+```bash
+poetry install
+```
+
+The code base for a given day can be initialized (which will also grab your specific
+input) by running:
 
 ```bash
 
-poetry run setup_day <day>
+poetry run init_day <day>
 ```
 
 To run the code for any particular day from the directory of the day:
 
 ```bash
-poetry run python <day>/<day>.py
+poetry run python <day>/<day>.py -p <part>
 ```
 
-Inputs should be saved in a file named `input.txt` within the associated
-directory for a given day
+If you also wish to automatically submit your solution (assuming you have saved the
+session cookie), you can run:
+
+```bash
+poetry run python <day>/<day>.py -p <part> | poetry run submit <day> -p <part>
+```
 
 ## Progress
 
