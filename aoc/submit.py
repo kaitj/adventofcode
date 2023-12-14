@@ -8,6 +8,11 @@ from datetime import date
 
 from aoc.utils import get_cookie_headers
 
+TOO_QUICK = re.compile("You gave an answer too recently.*to wait.")
+WRONG = re.compile(r"That's not the right answer.*?\.")
+RIGHT = "That's the right answer!"
+ALREADY_DONE = re.compile(r"You don't seem to be solving.*\?")
+
 
 def _post_answer(year: int, day: int, part: int, answer: int) -> str:
     params = urllib.parse.urlencode({"level": part, "answer": answer})
@@ -23,11 +28,6 @@ def _post_answer(year: int, day: int, part: int, answer: int) -> str:
 
 
 def submit_solution() -> int:
-    TOO_QUICK = re.compile("You gave an answer too recently.*to wait.")
-    WRONG = re.compile(r"That's not the right answer.*?\.")
-    RIGHT = "That's the right answer!"
-    ALREADY_DONE = re.compile(r"You don't seem to be solving.*\?")
-
     parser = ArgumentParser(
         description="Helper script to submit solution to advent of code",
         formatter_class=RawTextHelpFormatter,
