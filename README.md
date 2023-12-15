@@ -57,3 +57,4 @@ poetry run python <day>/<day>.py -p <part> | poetry run submit <day> -p <part>
 | 12  | [Hot Springs](https://adventofcode.com/2023/day/12)                    |    ✓     |
 | 13  | [Point of Incidence](https://adventofcode.com/2023/day/13)             |    ✓     |
 | 14  | [Parabolic Reflector Dish](https://adventofcode.com/2023/day/14)       |    ✓     |
+| 15  | [Lens Library](https://adventofcode.com/2023/day/15)                   |    ✓     |
