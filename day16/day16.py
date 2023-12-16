@@ -44,10 +44,13 @@ class Day16:
             return "rl"
         return direction
 
-    def energize(self) -> set[tuple[int, int]]:
+    def energize(self, sx: int, sy: int, direction: str) -> set[tuple[int, int]]:
         visited: set[tuple[int, int, str]] = set()
-        direction = self.find_direction(0, 0)
-        q = [(0, 0, direction)]  # current location + current direction
+        direction = self.find_direction(sx, sy, direction)
+        if len(direction) > 1:
+            q = [(sx, sy, next_dir) for next_dir in direction]
+        else:
+            q = [(sx, sy, direction)]  # current location + current direction
         while q:
             cx, cy, direction = q.pop()
             visited.add((cx, cy, direction))
@@ -56,26 +59,46 @@ class Day16:
 
             if not self._valid_move(nx, ny):
                 continue
+
             direction = self.find_direction(nx, ny, direction)
             if (nx, ny, direction) in visited:
                 continue
             if len(direction) > 1:
                 for next_dir in direction:
-                    q.append((nx, ny, next_dir))
+                    q.append((nx, ny, next_dir))  # pyright: ignore
             else:
-                q.append((nx, ny, direction))
+                q.append((nx, ny, direction))  # pyright: ignore
 
         return {(nx, ny) for (nx, ny, _) in visited}
+
+    def diff_starts(self) -> list[int]:
+        energies: list[int] = []
+
+        # Top and bottom rows
+        for sx in range(self.COLS):
+            for sy in [0, self.ROWS - 1]:
+                energies.append(  # pyright: ignore
+                    len(self.energize(sx=sx, sy=sy, direction="d" if sy == 0 else "u"))
+                )
+
+        # Left and right columns
+        for sy in range(self.ROWS):
+            for sx in [0, self.COLS - 1]:
+                energies.append(  # pyright: ignore
+                    len(self.energize(sx=sx, sy=sy, direction="r" if sx == 0 else "l"))
+                )
+
+        return energies
 
 
 class TestMain:
     def test_part1(self) -> None:
         test = Day16(f"{Path(__file__).parent}/test_input_part1.txt")
-        assert len(test.energize()) == 46
+        assert len(test.energize(sx=0, sy=0, direction="r")) == 46
 
     def test_part2(self) -> None:
-        raise NotImplementedError()
-        # test = Day16(f"{Path(__file__).parent}/test_input_part2.txt")
+        test = Day16(f"{Path(__file__).parent}/test_input_part1.txt")
+        assert max(test.diff_starts()) == 51
 
 
 def main():
@@ -83,9 +106,9 @@ def main():
 
     solution = Day16(f"{Path(__file__).parent}/input.txt")
     if args.part == 1:
-        print(len(solution.energize()))
+        print(len(solution.energize(sx=0, sy=0, direction="r")))
     elif args.part == 2:
-        raise NotImplementedError()
+        print(max(solution.diff_starts()))
     else:
         raise ValueError("Not a valid part")
 
