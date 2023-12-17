@@ -36,6 +36,10 @@ def run_day(day: int, part: int) -> int:
         capture_output=True,
     )
 
+    if answer.stderr:
+        msg = answer.stderr.decode("utf-8")
+        raise Exception(msg)
+
     return int(answer.stdout.strip())
 
 
