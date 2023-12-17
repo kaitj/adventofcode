@@ -5,7 +5,7 @@ import urllib.request
 from argparse import ArgumentParser, RawTextHelpFormatter
 from datetime import date
 
-from aoc.utils import get_cookie_headers, shell
+from aoc.utils import TOP_DIR, get_cookie_headers, shell
 
 TOO_QUICK = re.compile("You gave an answer too recently.*to wait.")
 WRONG = re.compile(r"That's not the right answer.*?\.")
@@ -27,12 +27,14 @@ def _post_answer(year: int, day: int, part: int, answer: int) -> str:
 
 
 def run_test(day: int, part: int) -> None:
-    shell(f"pytest day{day:02d}/day{day:02d}.py -k part{part} -s --pdb")
+    day_fpath = TOP_DIR.joinpath(f"day{day:02d}/day{day:02d}.py")
+    shell(f"pytest {day_fpath} -k part{part} -s --pdb")
 
 
 def run_day(day: int, part: int) -> int:
+    day_fpath = TOP_DIR.joinpath(f"day{day:02d}/day{day:02d}.py")
     answer = shell(
-        f"python day{day:02d}/day{day:02d}.py -p {part}",
+        f"python {day_fpath} -p {part}",
         capture_output=True,
     )
 
