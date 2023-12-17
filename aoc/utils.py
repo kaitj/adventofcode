@@ -6,8 +6,8 @@ from pathlib import Path
 TOP_DIR = Path(__file__).parent.parent
 
 
-def shell(cmd: str) -> subprocess.CompletedProcess[bytes]:
-    return subprocess.run(cmd, shell=True)
+def shell(cmd: str, capture_output: bool = False) -> subprocess.CompletedProcess[bytes]:
+    return subprocess.run(cmd, shell=True, capture_output=capture_output)
 
 
 def get_cookie_headers() -> dict[str, str]:
