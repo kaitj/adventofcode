@@ -24,18 +24,28 @@ input) by running:
 poetry run init_day <day>
 ```
 
-To run the code for any particular day from the directory of the day:
+If you want to test your code against the test cases (you will have to
+copy and paste the examples into the `test_*.txt` file):
 
 ```bash
-poetry run python <day>/<day>.py -p <part>
+poetry run submit <day> -p <part> -t
+```
+
+To run the code for any particular day without submitting your solution:
+
+```bash
+poetry run submit <day> -p <part> -n
 ```
 
 If you also wish to automatically submit your solution (assuming you have saved the
 session cookie), you can run:
 
 ```bash
-poetry run python <day>/<day>.py -p <part> | poetry run submit <day> -p <part>
+poetry run submit <day> -p <part>
 ```
+
+_Note: For each of the previous 3 commands, `part` is a choice between `1` or `2` to
+indicate the part of the puzzle being tested / run._
 
 ## Progress
 
