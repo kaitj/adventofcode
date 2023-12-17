@@ -59,3 +59,4 @@ poetry run python <day>/<day>.py -p <part> | poetry run submit <day> -p <part>
 | 14  | [Parabolic Reflector Dish](https://adventofcode.com/2023/day/14)       |    ✓     |
 | 15  | [Lens Library](https://adventofcode.com/2023/day/15)                   |    ✓     |
 | 16  | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16)         |    ✓     |
+| 17  | [Clumsy Crucible](https://adventofcode.com/2023/day/17)                |    ✓     |
