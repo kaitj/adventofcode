@@ -91,8 +91,13 @@ class TestMain:
         assert prod(test.state_count) == 32000000
 
     def test_part2(self) -> None:
-        raise NotImplementedError()
-        # test = Day20(f"{Path(__file__).parent}/test_input_part2.txt")
+        test = Day20(f"{Path(__file__).parent}/test_input_part1.txt")
+        while None in test.listen.values():
+            test.press(presses=1)
+        test_presses = 1
+        for val in test.listen.values():
+            test_presses *= val  # pyright: ignore
+        print(test_presses)  # pyright: ignore
 
 
 def main():
@@ -103,7 +108,12 @@ def main():
         solution.press(presses=1000)
         print(prod(solution.state_count))
     elif args.part == 2:
-        raise NotImplementedError()
+        while None in solution.listen.values():
+            solution.press(presses=1)
+        total: int = 1
+        for val in solution.listen.values():
+            total *= val  # pyright: ignore
+        print(total)  # pyright: ignore
     else:
         raise ValueError("Not a valid part")
 
