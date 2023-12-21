@@ -70,3 +70,7 @@ indicate the part of the puzzle being tested / run._
 | 15  | [Lens Library](https://adventofcode.com/2023/day/15)                   |    ✓     |
 | 16  | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16)         |    ✓     |
 | 17  | [Clumsy Crucible](https://adventofcode.com/2023/day/17)                |    ✓     |
+| 18  | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18)                |    ✓     |
+| 19  | [Aplenty](https://adventofcode.com/2023/day/19)                        |    ✓     |
+| 20  | [Pulse Propagation](https://adventofcode.com/2023/day/20)              |    ✓     |
+| 21  | [Step Counter](https://adventofcode.com/2023/day/21)                   |    ✓     |
