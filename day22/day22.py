@@ -87,22 +87,22 @@ class TestMain:
         assert test_drop_counts.count(0) == 5
 
     def test_part2(self) -> None:
-        raise NotImplementedError()
-        # test = Day22(f"{Path(__file__).parent}/test_input_part2.txt")
+        test = Day22(f"{Path(__file__).parent}/test_input_part1.txt")
+        test.simulate(update=True)
+        test_drop_counts = [test.simulate(without=brick) for brick in test.bricks]
+        assert sum(test_drop_counts) == 7
 
 
 def main():
     args = day_parser().parse_args()
 
     solution = Day22(f"{Path(__file__).parent}/input.txt")
+    solution.simulate(update=True)
+    brick_drop_counts = [solution.simulate(without=brick) for brick in solution.bricks]
     if args.part == 1:
-        solution.simulate(update=True)
-        brick_drop_counts = [
-            solution.simulate(without=brick) for brick in solution.bricks
-        ]
         print(brick_drop_counts.count(0))
     elif args.part == 2:
-        raise NotImplementedError()
+        print(sum(brick_drop_counts))
     else:
         raise ValueError("Not a valid part")
 
