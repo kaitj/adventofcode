@@ -41,7 +41,6 @@ SLOPES = dict(zip("^v><", Direction))
 class Day23:
     def __init__(self, input_path: str):
         self.map, self.start_pos, self.end_pos = self.load_map(input_path)
-        self.create_graph()
 
     def load_map(
         self, input_path: str
@@ -57,13 +56,15 @@ class Day23:
 
         return map, start_pos, end_pos  # type: ignore
 
-    def create_graph(self):
+    def create_graph(self, part_two: bool = False):
         self.nodes: dict[Position, Node] = {}
         for pos, ch in self.map.items():
             if ch == ".":
                 self.nodes[pos] = Node(pos=pos, edges={}, direction=None)
             if ch in SLOPES:
-                self.nodes[pos] = Node(pos=pos, edges={}, direction=SLOPES[ch].value)
+                self.nodes[pos] = Node(
+                    pos=pos, edges={}, direction=None if part_two else SLOPES[ch].value
+                )
 
         self.start = self.nodes[self.start_pos]
         self.end = self.nodes[self.end_pos]
@@ -94,6 +95,7 @@ class Day23:
 
     def compress(self):
         for node in self.nodes.values():
+            # If not directed and can only go in a straight-line
             if node.direction is None:
                 if len(node.edges) == 2 and not any(
                     edge.direction for edge in node.edges
@@ -107,12 +109,15 @@ class Day23:
 class TestMain:
     def test_part1(self) -> None:
         test = Day23(f"{Path(__file__).parent}/test_input_part1.txt")
+        test.create_graph()
         test_steps = test.traverse()
         assert test_steps == 94
 
     def test_part2(self) -> None:
-        raise NotImplementedError()
-        # test = Day23(f"{Path(__file__).parent}/test_input_part2.txt")
+        test = Day23(f"{Path(__file__).parent}/test_input_part1.txt")
+        test.create_graph(part_two=True)
+        test_steps = test.traverse()
+        assert test_steps == 154
 
 
 def main():
@@ -120,10 +125,11 @@ def main():
 
     solution = Day23(f"{Path(__file__).parent}/input.txt")
     if args.part == 1:
-        steps = solution.traverse()
-        print(steps)
+        solution.create_graph()
+        print(solution.traverse())
     elif args.part == 2:
-        raise NotImplementedError()
+        solution.create_graph(part_two=True)
+        print(solution.traverse())
     else:
         raise ValueError("Not a valid part")
 
