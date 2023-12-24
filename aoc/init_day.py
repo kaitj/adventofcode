@@ -63,7 +63,8 @@ def init_day():
     # git commands
     shell("git checkout main")
     shell("git pull -r origin main")
-    shell(f"git checkout -b {year}/{day}")
+    shell('git branch --merged | egrep -v "(^\\*|main)" | xargs git branch -d ")')
+    shell(f"git checkout -B {year}/{day}")
 
     # Update template for current day
     day_dir = Path(TOP_DIR).joinpath(day)
