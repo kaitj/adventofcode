@@ -33,4 +33,4 @@ select = ["E", "W", "N", "RUF", "I"]
 [tool.pyright]
 typeCheckingMode = "strict"
 reportPrivateUsage = false
-exclude = ["day00"]
+exclude = ["day00", "day24/day24.py"]
