@@ -76,3 +76,4 @@ indicate the part of the puzzle being tested / run._
 | 21  | [Step Counter](https://adventofcode.com/2023/day/21)                   |    ✓     |
 | 22  | [Sand Slabs](https://adventofcode.com/2023/day/22)                     |    ✓     |
 | 23  | [A Long Walk](https://adventofcode.com/2023/day/23)                    |    ✓     |
+| 24  | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24)         |    ✓     |
