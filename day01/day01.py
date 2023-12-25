@@ -25,7 +25,7 @@ class Day01:
         self.lines = self.load_lines(input)
 
     def load_lines(self, input: str) -> list[str]:
-        with open(input, "r", encoding="utf-8") as in_file:
+        with open(input, encoding="utf-8") as in_file:
             return [line.strip("\n") for line in in_file]
 
     def get_calibration_value(self, part_two: bool) -> list[int]:
