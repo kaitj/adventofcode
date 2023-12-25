@@ -12,7 +12,7 @@ class Day02:
 
     def load_games(self, input: str) -> dict[int, dict[str, list[int]]]:
         games: dict[int, dict[str, list[int]]] = {}
-        with open(input, "r", encoding="utf-8") as in_file:
+        with open(input, encoding="utf-8") as in_file:
             for line in in_file:
                 game, record = line.split(": ")
                 game = int(game.split(" ")[-1])

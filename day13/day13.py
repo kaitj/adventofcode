@@ -1,6 +1,6 @@
 #!/usr/bin/env python
+from collections.abc import Sequence
 from pathlib import Path
-from typing import Sequence
 
 from aoc.utils import day_parser
 
