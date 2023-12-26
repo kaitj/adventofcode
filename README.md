@@ -42,3 +42,4 @@ After running, user should be prompted for input (or usage will be printed)
 | 22  | [Monkey Map](https://adventofcode.com/2022/day/22)               |    ✓     |
 | 23  | [Unstable Diffusion](https://adventofcode.com/2022/day/23)       |    ✓     |
 | 24  | [Blizzard Basin](https://adventofcode.com/2022/day/24)           |    ✓     |
+| 25  | [Full of Hot Air](https://adventofcode.com/2022/day/25)          |    ✓     |
