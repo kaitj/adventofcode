@@ -3,12 +3,14 @@
 My solutions to the exercises at https://adventofcode.com/2021, completed in Python (3.10).
 
 ## Notes
-* Testing out Python 3.10
-* Solutions will primarily rely on user input instead of hard-coded paths
-* Implements unit testing to first test code
-* An attempt is made at minimizing complexity this year, but not the goal
+
+- Testing out Python 3.10
+- Solutions will primarily rely on user input instead of hard-coded paths
+- Implements unit testing to first test code
+- An attempt is made at minimizing complexity this year, but not the goal
 
 ## Code
+
 To run the code for any particular day from the directory of the day:
 
 ```
@@ -19,21 +21,22 @@ After running, user should be prompted for input (or usage will be printed)
 
 ## Progress
 
-| Day | Name | Progress |
-|:---:|:---|:---:|
-| 01 | [Sonar Sweep](https://adventofcode.com/2020/day/1) | ✓ |
-| 02 | [Dive!](https://adventofcode.com/2021/day/2) | ✓ |
-| 03 | [Binary Diagnostic](https://adventofcode.com/2021/day/3) | ✓ |
-| 04 | [Giant Squid](https://adventofcode.com/2021/day/4) | ✓ |
-| 05 | [Hydrothermal Venture](https://adventofcode.com/2021/day/5) | ✓ |
-| 06 | [Lanternfish](https://adventofcode.com/2021/day/6) | ✓ |
-| 07 | [The Treachery of Whales](https://adventofcode.com/2021/day/7) | ✓ |
-| 08 | [Seven Segment Search](https://adventofcode.com/2021/day/8) | ✓ |
-| 09 | [Smoke Basin](https://adventofcode.com/2021/day/9) | ✓ |
-| 10 | [Syntax Sorting](https://adventofcode.com/2021/day/10) | ✓ |
-| 11 | [Dumbo Octopus](https://adventofcode.com/2021/day/11) | ✓ |
-| 12 | [Passage Pathing](https://adventofcode.com/2021/day/12) | ✓ |
-| 13 | [Transparent Origami](https://adventofcode.com/2021/day/13) | ✓ |
-| 14 | [Extended Polymerization](https://adventofcode.com/2021/day/14) | ✓ |
+| Day | Name                                                            | Progress |
+| :-: | :-------------------------------------------------------------- | :------: |
+| 01  | [Sonar Sweep](https://adventofcode.com/2020/day/1)              |    ✓     |
+| 02  | [Dive!](https://adventofcode.com/2021/day/2)                    |    ✓     |
+| 03  | [Binary Diagnostic](https://adventofcode.com/2021/day/3)        |    ✓     |
+| 04  | [Giant Squid](https://adventofcode.com/2021/day/4)              |    ✓     |
+| 05  | [Hydrothermal Venture](https://adventofcode.com/2021/day/5)     |    ✓     |
+| 06  | [Lanternfish](https://adventofcode.com/2021/day/6)              |    ✓     |
+| 07  | [The Treachery of Whales](https://adventofcode.com/2021/day/7)  |    ✓     |
+| 08  | [Seven Segment Search](https://adventofcode.com/2021/day/8)     |    ✓     |
+| 09  | [Smoke Basin](https://adventofcode.com/2021/day/9)              |    ✓     |
+| 10  | [Syntax Sorting](https://adventofcode.com/2021/day/10)          |    ✓     |
+| 11  | [Dumbo Octopus](https://adventofcode.com/2021/day/11)           |    ✓     |
+| 12  | [Passage Pathing](https://adventofcode.com/2021/day/12)         |    ✓     |
+| 13  | [Transparent Origami](https://adventofcode.com/2021/day/13)     |    ✓     |
+| 14  | [Extended Polymerization](https://adventofcode.com/2021/day/14) |    ✓     |
+| 15  | [Chifton](https://adventofcode.com/2021/day/15)                 |    ✓     |
 
 ## Notes
