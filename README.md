@@ -38,5 +38,6 @@ After running, user should be prompted for input (or usage will be printed)
 | 13  | [Transparent Origami](https://adventofcode.com/2021/day/13)     |    ✓     |
 | 14  | [Extended Polymerization](https://adventofcode.com/2021/day/14) |    ✓     |
 | 15  | [Chifton](https://adventofcode.com/2021/day/15)                 |    ✓     |
+| 16  | [Packet Decoder](https://adventofcode.com/2021/day/16)          |    ✓     |
 
 ## Notes
