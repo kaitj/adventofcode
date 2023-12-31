@@ -44,5 +44,6 @@ After running, user should be prompted for input (or usage will be printed)
 | 19  | [Beacon Scanner](https://adventofcode.com/2021/day/19)          |    ✓     |
 | 20  | [Trench Map](https://adventofcode.com/2021/day/20)              |    ✓     |
 | 21  | [Dirac Dice](https://adventofcode.com/2021/day/21)              |    ✓     |
+| 22  | [Reactor Reboot](https://adventofcode.com/2021/day/22)          |    ✓     |
 
 ## Notes
