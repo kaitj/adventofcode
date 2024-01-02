@@ -47,5 +47,6 @@ After running, user should be prompted for input (or usage will be printed)
 | 22  | [Reactor Reboot](https://adventofcode.com/2021/day/22)          |    ✓     |
 | 23  | [Amphipod](https://adventofcode.com/2021/day/23)                |    ✓     |
 | 24  | [Arithmetic Logic Unit](https://adventofcode.com/2021/day/24)   |    ✓     |
+| 25  | [Sea Cucumber](https://adventofcode.com/2021/day/25)            |    ✓     |
 
 ## Notes
