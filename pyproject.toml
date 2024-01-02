@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "adventofcode"
-version = "2023.12.25"
+version = "2019"
 description = "Programming puzzles complete in Python for AoC."
 authors = ["Jason Kai <tkai@uwo.ca>"]
 readme = "README.md"
@@ -32,4 +32,4 @@ select = ["E", "W", "N", "RUF", "I", "UP"]
 [tool.pyright]
 typeCheckingMode = "strict"
 reportPrivateUsage = false
-exclude = ["day00", "day24/day24.py"]
+exclude = ["day00"]
