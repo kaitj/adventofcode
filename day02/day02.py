@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import operator as op
 from collections.abc import Callable
+from copy import deepcopy
 from pathlib import Path
 from typing import ClassVar, Self
 
@@ -31,7 +32,9 @@ class Day02:
         else:
             raise ValueError("Invalid opcode")
 
-    def process_program(self: Self, step: int = 4) -> None:
+    def process_program(self: Self, noun: int, verb: int, *, step: int = 4) -> None:
+        self.program[1] = noun
+        self.program[2] = verb
         for idx in range(0, len(self.program), step):
             if self.program[idx] == 99:
                 break
@@ -42,7 +45,7 @@ class Day02:
 class TestMain:
     def test_part1(self: Self) -> None:
         test = Day02(f"{Path(__file__).parent}/test_input_part1.txt")
-        test.process_program()
+        test.process_program(test.program[1], test.program[2])
         assert test.program[0] == 3500
 
     def test_part2(self: Self) -> None:
@@ -55,12 +58,15 @@ def main():
 
     solution = Day02(f"{Path(__file__).parent}/input.txt")
     if args.part == 1:
-        solution.program[1] = 12
-        solution.program[2] = 2
-        solution.process_program()
+        solution.process_program(12, 2)
         print(solution.program[0])
     elif args.part == 2:
-        ...
+        for noun in range(100):
+            for verb in range(100):
+                solution_copy = deepcopy(solution)
+                solution_copy.process_program(noun, verb)
+                if solution_copy.program[0] == 19690720:
+                    print(100 * noun + verb)
     else:
         raise ValueError("Not a valid part")
 
