@@ -56,3 +56,4 @@ indicate the part of the puzzle being tested / run._
 | 01  | [The Tyranny of the Rocket Equation](https://adventofcode.com/2019/day/1) |    ✓     |
 | 02  | [1202 Program Alarm](https://adventofcode.com/2019/day/2)                 |    ✓     |
 | 03  | [Crossed Wires](https://adventofcode.com/2019/day/3)                      |    ✓     |
+| 04  | [Secure Container](https://adventofcode.com/2019/day/4)                   |    ✓     |
