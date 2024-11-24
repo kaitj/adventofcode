@@ -2,7 +2,7 @@ use adventofcode::template::commands::{all, download, read, scaffold, solve, tim
 use args::{parse, AppArguments};
 
 #[cfg(feature = "today")]
-use advent_of_code::template::Day;
+use adventofcode::template::Day;
 #[cfg(feature = "today")]
 use std::process;
 
@@ -132,7 +132,7 @@ fn main() {
                     }
                     None => {
                         eprintln!(
-                            "`today`command can only be run between December 1st and \
+                            "`today` command can only be run between December 1st and \
                             25th. Please use `scaffold` with a specific day."
                         );
                         process::exit(1)

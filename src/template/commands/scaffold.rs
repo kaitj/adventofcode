@@ -22,8 +22,8 @@ pub fn handle(day: Day, overwrite: bool) {
     let binding = MODULE_TEMPLATE.replace("%DAY_NUMBER%", &day.into_inner().to_string());
     let paths = [
         (format!("src/bin/day{day}.rs"), binding.as_bytes(), "module"),
-        (format!("data/day{day}/input.txt"), b"", "input"),
-        (format!("data/day{day}/example.txt"), b"", "example"),
+        (format!("data/inputs/day{day}.txt"), b"", "input"),
+        (format!("data/examples/day{day}.txt"), b"", "example"),
     ];
 
     for (path, content, description) in paths {
@@ -35,7 +35,7 @@ pub fn handle(day: Day, overwrite: bool) {
     }
 
     println!("---");
-    println!("🎄 Type `cargo solve {day}` to run your solution.")
+    println!("🎄 Type `adventofcode solve {day}` to run your solution.")
 }
 
 fn create_and_write_file(

@@ -17,37 +17,26 @@ pub const ANSI_RESET: &str = "\x1b[0m";
 
 /// Helper function to read text file to string
 #[must_use]
-pub fn read_file(day: Day) -> String {
+pub fn read_file(folder: &str, day: Day) -> String {
     let filepath = env::current_dir()
         .expect("Failed to get current directory")
         .join("data")
-        .join(format!("day{day}"))
-        .join("input.txt");
+        .join(folder)
+        .join(format!("day{day}.txt"));
     fs::read_to_string(&filepath)
         .unwrap_or_else(|_| panic!("Could not open input file: {}", filepath.display()))
 }
 
 /// Helper to read multi-part text
 #[must_use]
-pub fn read_file_part(day: Day, part: u8) -> String {
+pub fn read_file_part(folder: &str, day: Day, part: u8) -> String {
     let filepath = env::current_dir()
         .expect("Failed to get current directory")
         .join("data")
-        .join(format!("day{day}"))
-        .join(format!("input-{part}.txt"));
+        .join(folder)
+        .join(format!("day{day}-{part}.txt"));
     fs::read_to_string(&filepath)
         .unwrap_or_else(|_| panic!("Could not open input file: {}", filepath.display()))
-}
-
-#[must_use]
-pub fn read_example(day: Day) -> String {
-    let filepath = env::current_dir()
-        .expect("Failed to get current directory")
-        .join("data")
-        .join(format!("day{day}"))
-        .join("example.txt");
-    fs::read_to_string(&filepath)
-        .unwrap_or_else(|_| panic!("Could not open example file: {}", filepath.display()))
 }
 
 /// Macro to setup input and runner for each part

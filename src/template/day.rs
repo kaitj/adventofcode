@@ -12,7 +12,7 @@ const SERVER_UTC_OFFSET: i32 = -5;
 /// This value displays as a two digit number.
 ///
 /// ```
-/// # use advent_of_code::Day;
+/// # use adventofcode::Day;
 /// let day = Day::new(8).unwrap();
 /// assert_eq!(day.to_string(), "08")
 /// ```
@@ -154,10 +154,8 @@ mod tests {
 
     #[test]
     fn day_display() {
-        fn day_display() {
-            assert_eq!(Day::new(1).unwrap().to_string(), "01");
-            assert_eq!(Day::new(25).unwrap().to_string(), "25");
-        }
+        assert_eq!(Day::new(1).unwrap().to_string(), "01");
+        assert_eq!(Day::new(25).unwrap().to_string(), "25");
     }
 
     #[test]
