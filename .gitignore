@@ -2,10 +2,8 @@
 *.code-workspace
 .vscode
 
-# Caches
-__pycache__
-.pytest_cache/
-.ruff_cache/
+# AoC session cookie
+.adventofcode.session
 
-# AOC cookie
-.cookie
+# Added by cargo
+/target
