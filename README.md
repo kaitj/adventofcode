@@ -205,6 +205,6 @@ cargo clippy
 
 <!-- :star: -->
 
-| Day | Name                                      | Part 1 | Part 2 |
-| :-: | :---------------------------------------- | :----: | :----: |
-| 01  | [??](https://adventofcode.com/2024/day/1) |        |        |
+| Day | Name                                                      | Part 1 | Part 2 |
+| :-: | :-------------------------------------------------------- | :----: | :----: |
+| 01  | [Historian Hysteria](https://adventofcode.com/2024/day/1) | :star: | :star: |
