@@ -22,7 +22,7 @@ pub fn read_file(folder: &str, day: Day) -> String {
         .expect("Failed to get current directory")
         .join("data")
         .join(folder)
-        .join(format!("day{day}.txt"));
+        .join(format!("{day}.txt"));
     fs::read_to_string(&filepath)
         .unwrap_or_else(|_| panic!("Could not open input file: {}", filepath.display()))
 }
@@ -34,7 +34,7 @@ pub fn read_file_part(folder: &str, day: Day, part: u8) -> String {
         .expect("Failed to get current directory")
         .join("data")
         .join(folder)
-        .join(format!("day{day}-{part}.txt"));
+        .join(format!("{day}-{part}.txt"));
     fs::read_to_string(&filepath)
         .unwrap_or_else(|_| panic!("Could not open input file: {}", filepath.display()))
 }
@@ -43,7 +43,7 @@ pub fn read_file_part(folder: &str, day: Day, part: u8) -> String {
 #[macro_export]
 macro_rules! solution {
     ($day:expr) => {
-        $crate::solution!(@impl $day, [part_one, 1], [part_two, 2]);
+        $crate::solution!(@impl $day, [part_one, 1] [part_two, 2]);
     };
     ($day:expr, 1) => {
         $crate::solution!(@impl $day, [part_one, 1]);
@@ -52,8 +52,9 @@ macro_rules! solution {
         $crate::solution!(@impl $day, [part_two, 2]);
     };
 
-    (@impl $day:expr, $( [$func:expr, $part: expr] )*) => {
-        const DAY: $crate::$template::Day = $crate::day!($day);
+    (@impl $day:expr, $( [$func:expr, $part:expr] )*) => {
+        /// The current day.
+        const DAY: $crate::template::Day = $crate::day!($day);
 
         #[cfg(feature = "dhat-heap")]
         #[global_allocator]
@@ -61,8 +62,8 @@ macro_rules! solution {
 
         fn main() {
             use $crate::template::runner::*;
-            let input = $crate::template::read_file(DAY);
-            $( run_part($func, &input, DAY, &part); )*
+            let input = $crate::template::read_file("inputs", DAY);
+            $( run_part($func, &input, DAY, $part); )*
         }
     };
 }

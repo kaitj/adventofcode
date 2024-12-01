@@ -21,7 +21,7 @@ impl From<std::io::Error> for Error {
 
 #[must_use]
 pub fn get_path_for_bin(day: Day) -> String {
-    format! {"./src/bin/day{day}.rs"}
+    format! {"./src/bin/{day}.rs"}
 }
 
 fn locate_table(readme: &str) -> Result<Range<usize>, Error> {
