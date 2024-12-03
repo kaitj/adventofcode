@@ -209,3 +209,4 @@ cargo clippy
 | :-: | :-------------------------------------------------------- | :----: | :----: |
 | 01  | [Historian Hysteria](https://adventofcode.com/2024/day/1) | :star: | :star: |
 | 02  | [Red-Nosed Reports](https://adventofcode.com/2024/day/2)  | :star: | :star: |
+| 03  | [Mull It Over](https://adventofcode.com/2024/day/3)       | :star: | :star: |
