@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 adventofcode::solution!(01);
 
-pub fn parse_input(input: &str) -> (Vec<u32>, Vec<u32>) {
+fn parse_input(input: &str) -> (Vec<u32>, Vec<u32>) {
     input
         .lines()
         .filter_map(|line| {
