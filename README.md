@@ -214,3 +214,4 @@ cargo clippy
 | 05  | [Print Queue](https://github.com/adventofcode.com/2024/day/5)     | :star: | :star: |
 | 05  | [Print Queue](https://github.com/adventofcode.com/2024/day/5)     | :star: | :star: |
 | 06  | [Guard Gallivant](https://github.com/adventofcode.com/2024/day/6) | :star: | :star: |
+| 07  | [Bridge Repair](https://github.com/adventofcode.com/2024/day/7)   | :star: | :star: |
