@@ -26,3 +26,4 @@ tinyjson = "2.5.1"
 
 # Solution deps
 regex = "1.11.1"
+itertools = "0.13.0"

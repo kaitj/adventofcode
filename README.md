@@ -205,10 +205,14 @@ cargo clippy
 
 <!-- :star: -->
 
-| Day | Name                                                          | Part 1 | Part 2 |
-| :-: | :------------------------------------------------------------ | :----: | :----: |
-| 01  | [Historian Hysteria](https://adventofcode.com/2024/day/1)     | :star: | :star: |
-| 02  | [Red-Nosed Reports](https://adventofcode.com/2024/day/2)      | :star: | :star: |
-| 03  | [Mull It Over](https://adventofcode.com/2024/day/3)           | :star: | :star: |
-| 04  | [Ceres Search](https://adventofcode.com/2024/day/4)           | :star: | :star: |
-| 05  | [Print Queue](https://github.com/adventofcode.com/2024/day/5) | :star: | :star: |
+| Day | Name                                                                    | Part 1 | Part 2 |
+| :-: | :---------------------------------------------------------------------- | :----: | :----: |
+| 01  | [Historian Hysteria](https://adventofcode.com/2024/day/1)               | :star: | :star: |
+| 02  | [Red-Nosed Reports](https://adventofcode.com/2024/day/2)                | :star: | :star: |
+| 03  | [Mull It Over](https://adventofcode.com/2024/day/3)                     | :star: | :star: |
+| 04  | [Ceres Search](https://adventofcode.com/2024/day/4)                     | :star: | :star: |
+| 05  | [Print Queue](https://github.com/adventofcode.com/2024/day/5)           | :star: | :star: |
+| 05  | [Print Queue](https://github.com/adventofcode.com/2024/day/5)           | :star: | :star: |
+| 06  | [Guard Gallivant](https://github.com/adventofcode.com/2024/day/6)       | :star: | :star: |
+| 07  | [Bridge Repair](https://github.com/adventofcode.com/2024/day/7)         | :star: | :star: |
+| 08  | [Resonant Collinearity](https://github.com/adventofcode.com/2024/day/8) | :star: | :star: |
