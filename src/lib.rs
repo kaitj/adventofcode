@@ -58,6 +58,8 @@ pub enum Direction {
     NW,
 }
 
+pub const CARDINALS: [Direction; 4] = [Direction::N, Direction::E, Direction::S, Direction::W];
+
 impl Direction {
     pub fn rotate_clockwise(&self) -> Direction {
         match self {
@@ -77,6 +79,14 @@ pub struct Matrix<T> {
     pub cells: Vec<Vec<T>>,
     pub cols: usize,
     pub rows: usize,
+}
+
+impl<T> From<Vec<Vec<T>>> for Matrix<T> {
+    fn from(cells: Vec<Vec<T>>) -> Self {
+        let rows = cells.len();
+        let cols = cells[0].len();
+        Self { cells, rows, cols }
+    }
 }
 
 impl<T: Copy> Matrix<T> {
