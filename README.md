@@ -216,3 +216,4 @@ cargo clippy
 | 06  | [Guard Gallivant](https://github.com/adventofcode.com/2024/day/6)       | :star: | :star: |
 | 07  | [Bridge Repair](https://github.com/adventofcode.com/2024/day/7)         | :star: | :star: |
 | 08  | [Resonant Collinearity](https://github.com/adventofcode.com/2024/day/8) | :star: | :star: |
+| 09  | [Disk Fragmenter](https://github.com/adventofcode.com/2024/day/9)       | :star: | :star: |
