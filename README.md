@@ -219,3 +219,4 @@ cargo clippy
 | 09  | [Disk Fragmenter](https://github.com/adventofcode.com/2024/day/9)       | :star: | :star: |
 | 10  | [Hoof It](https://github.com/adventofcode.com/2024/day/10)              | :star: | :star: |
 | 11  | [Plutonian Bubbles](https://github.com/adventofcode.com/2024/day/11)    | :star: | :star: |
+| 12  | [Garden Groups](https://github.com/adventofcode.com/2024/day/12)        | :star: |        |

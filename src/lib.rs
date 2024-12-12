@@ -60,6 +60,8 @@ pub enum Direction {
 
 pub const CARDINALS: [Direction; 4] = [Direction::N, Direction::E, Direction::S, Direction::W];
 
+pub const ORDINALS: [Direction; 4] = [Direction::NE, Direction::SE, Direction::SW, Direction::NW];
+
 impl Direction {
     pub fn rotate_clockwise(&self) -> Direction {
         match self {
