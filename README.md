@@ -220,3 +220,4 @@ cargo clippy
 | 10  | [Hoof It](https://github.com/adventofcode.com/2024/day/10)              | :star: | :star: |
 | 11  | [Plutonian Bubbles](https://github.com/adventofcode.com/2024/day/11)    | :star: | :star: |
 | 12  | [Garden Groups](https://github.com/adventofcode.com/2024/day/12)        | :star: |        |
+| 13  | [Claw Contraption](https://github.com/adventofcode.com/2024/day/13)     | :star: | :star: |
