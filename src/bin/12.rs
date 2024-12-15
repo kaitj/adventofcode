@@ -15,10 +15,16 @@ fn parse(input: &str) -> Grid {
     }
 }
 
-fn process_plant(grid: &Grid, visited: &mut HashSet<Point>, start: Point) -> (usize, usize) {
+fn process_plant(
+    grid: &Grid,
+    visited: &mut HashSet<Point>,
+    start: Point,
+    part_two: bool,
+) -> (usize, usize) {
     let mut stack = vec![start];
     let mut area = 0;
     let mut perimeter = 0;
+    let mut edges: HashSet<(Point, Point)> = HashSet::new();
     let plant_type = grid.plants.get(&start);
 
     while let Some(point) = stack.pop() {
@@ -37,13 +43,25 @@ fn process_plant(grid: &Grid, visited: &mut HashSet<Point>, start: Point) -> (us
                     if !visited.contains(&neighbour) {
                         stack.push(neighbour);
                     }
+                } else {
+                    // Edge inside of grid
+                    let edge = (point, neighbour);
+                    edges.insert(edge);
                 }
+            } else {
+                // Edge outside of grid
+                let edge = (point, point);
+                edges.insert(edge);
             }
         }
         perimeter += local_perimeter;
     }
 
-    (area, perimeter)
+    if part_two {
+        (area, edges.len())
+    } else {
+        (area, perimeter)
+    }
 }
 
 pub fn part_one(input: &str) -> Option<u32> {
@@ -59,7 +77,7 @@ pub fn part_one(input: &str) -> Option<u32> {
             };
 
             if !visited.contains(&point) {
-                let (area, perimeter) = process_plant(&grid, &mut visited, point);
+                let (area, perimeter) = process_plant(&grid, &mut visited, point, false);
                 total_price += area * perimeter;
             }
         }
@@ -81,7 +99,7 @@ pub fn part_two(input: &str) -> Option<u32> {
             };
 
             if !visited.contains(&point) {
-                let (area, sides) = process_plant(&grid, &mut visited, point);
+                let (area, sides) = process_plant(&grid, &mut visited, point, true);
                 total_price += area * sides;
             }
         }
