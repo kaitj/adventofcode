@@ -75,6 +75,19 @@ impl Direction {
             Direction::SW => Direction::NW,
         }
     }
+
+    pub fn rotate_counterclockwise(&self) -> Direction {
+        match self {
+            Direction::N => Direction::W,
+            Direction::E => Direction::N,
+            Direction::S => Direction::E,
+            Direction::W => Direction::S,
+            Direction::NW => Direction::SW,
+            Direction::NE => Direction::NW,
+            Direction::SE => Direction::NE,
+            Direction::SW => Direction::SE,
+        }
+    }
 }
 
 pub struct Matrix<T> {

@@ -222,3 +222,4 @@ cargo clippy
 | 13  | [Claw Contraption](https://adventofcode.com/2024/day/13)     | :star: | :star: |
 | 14  | [Restroom Redoubt](https://adventofcode.com/2024/day/14)     | :star: | :star: |
 | 15  | [Warehouse Woes](https://adventofcode.com/2024/day/15)       | :star: |        |
+| 16  | [Reindeer Maze](https://adventofcode.com/2024/day/16)        | :star: |        |
