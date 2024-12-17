@@ -205,21 +205,22 @@ cargo clippy
 
 <!-- :star: -->
 
-| Day | Name                                                         | Part 1 | Part 2 |
-| :-: | :----------------------------------------------------------- | :----: | :----: |
-| 01  | [Historian Hysteria](https://adventofcode.com/2024/day/1)    | :star: | :star: |
-| 02  | [Red-Nosed Reports](https://adventofcode.com/2024/day/2)     | :star: | :star: |
-| 03  | [Mull It Over](https://adventofcode.com/2024/day/3)          | :star: | :star: |
-| 04  | [Ceres Search](https://adventofcode.com/2024/day/4)          | :star: | :star: |
-| 05  | [Print Queue](https://adventofcode.com/2024/day/5)           | :star: | :star: |
-| 06  | [Guard Gallivant](https://adventofcode.com/2024/day/6)       | :star: | :star: |
-| 07  | [Bridge Repair](https://adventofcode.com/2024/day/7)         | :star: | :star: |
-| 08  | [Resonant Collinearity](https://adventofcode.com/2024/day/8) | :star: | :star: |
-| 09  | [Disk Fragmenter](https://adventofcode.com/2024/day/9)       | :star: | :star: |
-| 10  | [Hoof It](https://adventofcode.com/2024/day/10)              | :star: | :star: |
-| 11  | [Plutonian Bubbles](https://adventofcode.com/2024/day/11)    | :star: | :star: |
-| 12  | [Garden Groups](https://adventofcode.com/2024/day/12)        | :star: |        |
-| 13  | [Claw Contraption](https://adventofcode.com/2024/day/13)     | :star: | :star: |
-| 14  | [Restroom Redoubt](https://adventofcode.com/2024/day/14)     | :star: | :star: |
-| 15  | [Warehouse Woes](https://adventofcode.com/2024/day/15)       | :star: |        |
-| 16  | [Reindeer Maze](https://adventofcode.com/2024/day/16)        | :star: |        |
+| Day | Name                                                           | Part 1 | Part 2 |
+| :-: | :------------------------------------------------------------- | :----: | :----: |
+| 01  | [Historian Hysteria](https://adventofcode.com/2024/day/1)      | :star: | :star: |
+| 02  | [Red-Nosed Reports](https://adventofcode.com/2024/day/2)       | :star: | :star: |
+| 03  | [Mull It Over](https://adventofcode.com/2024/day/3)            | :star: | :star: |
+| 04  | [Ceres Search](https://adventofcode.com/2024/day/4)            | :star: | :star: |
+| 05  | [Print Queue](https://adventofcode.com/2024/day/5)             | :star: | :star: |
+| 06  | [Guard Gallivant](https://adventofcode.com/2024/day/6)         | :star: | :star: |
+| 07  | [Bridge Repair](https://adventofcode.com/2024/day/7)           | :star: | :star: |
+| 08  | [Resonant Collinearity](https://adventofcode.com/2024/day/8)   | :star: | :star: |
+| 09  | [Disk Fragmenter](https://adventofcode.com/2024/day/9)         | :star: | :star: |
+| 10  | [Hoof It](https://adventofcode.com/2024/day/10)                | :star: | :star: |
+| 11  | [Plutonian Bubbles](https://adventofcode.com/2024/day/11)      | :star: | :star: |
+| 12  | [Garden Groups](https://adventofcode.com/2024/day/12)          | :star: |        |
+| 13  | [Claw Contraption](https://adventofcode.com/2024/day/13)       | :star: | :star: |
+| 14  | [Restroom Redoubt](https://adventofcode.com/2024/day/14)       | :star: | :star: |
+| 15  | [Warehouse Woes](https://adventofcode.com/2024/day/15)         | :star: |        |
+| 16  | [Reindeer Maze](https://adventofcode.com/2024/day/16)          | :star: |        |
+| 17  | [Chronospatial Computer](https://adventofcode.com/2024/day/17) | :star: | :star: |
