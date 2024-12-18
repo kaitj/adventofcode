@@ -224,3 +224,4 @@ cargo clippy
 | 15  | [Warehouse Woes](https://adventofcode.com/2024/day/15)         | :star: |        |
 | 16  | [Reindeer Maze](https://adventofcode.com/2024/day/16)          | :star: |        |
 | 17  | [Chronospatial Computer](https://adventofcode.com/2024/day/17) | :star: | :star: |
+| 18  | [RAM Run](https://adventofcode.com/2024/day/18)                | :star: | :star: |
