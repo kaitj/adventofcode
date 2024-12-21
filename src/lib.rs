@@ -7,6 +7,10 @@ pub struct Point {
 }
 
 impl Point {
+    pub fn new(x: isize, y: isize) -> Self {
+        Point { x, y }
+    }
+
     #[inline(always)]
     pub fn neighbour(&self, direction: Direction) -> Point {
         match direction {
@@ -43,6 +47,10 @@ impl Point {
                 y: self.y + 1,
             },
         }
+    }
+
+    pub fn manhattan(&self, other: &Point) -> usize {
+        self.x.abs_diff(other.x) + self.y.abs_diff(other.y)
     }
 }
 
